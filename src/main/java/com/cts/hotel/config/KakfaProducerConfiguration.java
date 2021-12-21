@@ -13,7 +13,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.cts.hotel.model.HotelModel;
+import com.cts.hotel.model.RoomModel;
 
 @Configuration
 public class KakfaProducerConfiguration {
@@ -25,7 +25,7 @@ public class KakfaProducerConfiguration {
     private String kafkaPort;
 
     @Bean
-    public ProducerFactory<String, HotelModel> producerFactory() {
+    public ProducerFactory<String, RoomModel> producerFactory() {
     	
         Map<String, Object> config = new HashMap<>();
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaURL + ":" + kafkaPort);
@@ -36,7 +36,7 @@ public class KakfaProducerConfiguration {
     }
 
     @Bean
-    public KafkaTemplate<String, HotelModel> kafkaTemplate() {
+    public KafkaTemplate<String, RoomModel> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }

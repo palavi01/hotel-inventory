@@ -16,7 +16,7 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.cts.hotel.model.HotelModel;
+import com.cts.hotel.model.RoomModel;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -33,7 +33,7 @@ public class KafkaConsumerConfiguration {
     private String kafkaPort;
 
     @Bean
-    public ConsumerFactory<String, HotelModel> emailConsumerFactory() {
+    public ConsumerFactory<String, RoomModel> roomConsumerFactory() {
 
         Map<String, Object> config = new HashMap<>();
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaURL + ":" + kafkaPort);
@@ -44,20 +44,20 @@ public class KafkaConsumerConfiguration {
         config.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
 
         ErrorHandlingDeserializer<String> headerErrorHandlingDeserializer = new ErrorHandlingDeserializer<>(new StringDeserializer());
-        ErrorHandlingDeserializer<HotelModel> errorHandlingDeserializer = new ErrorHandlingDeserializer<>(new JsonDeserializer<>(HotelModel.class, objectMapper()));
+        ErrorHandlingDeserializer<RoomModel> errorHandlingDeserializer = new ErrorHandlingDeserializer<>(new JsonDeserializer<>(RoomModel.class, objectMapper()));
         return new DefaultKafkaConsumerFactory<>(config, headerErrorHandlingDeserializer, errorHandlingDeserializer);
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, HotelModel> emailKafkaListenerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, HotelModel> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(emailConsumerFactory());
+    public ConcurrentKafkaListenerContainerFactory<String, RoomModel> roomKafkaListenerFactory() {
+    	
+        ConcurrentKafkaListenerContainerFactory<String, RoomModel> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(roomConsumerFactory());
         factory.setErrorHandler(new KafkaErrorHandler());
         return factory;
     }
 
     private ObjectMapper objectMapper() {
-        return Jackson2ObjectMapperBuilder.json().visibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
-                .featuresToDisable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES).build();
+        return Jackson2ObjectMapperBuilder.json().visibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY).featuresToDisable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES).build();
     }
 }

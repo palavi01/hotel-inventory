@@ -17,4 +17,7 @@ public class RoomTypeModel extends CommonModel {
 	
 	@JsonProperty("description")
 	private String description;
+	
+	@JsonProperty("hotel")
+	private HotelModel hotelModel;
 }

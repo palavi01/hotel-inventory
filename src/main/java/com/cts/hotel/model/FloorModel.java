@@ -1,6 +1,6 @@
 package com.cts.hotel.model;
 
-import java.util.Set;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -17,6 +17,10 @@ public class FloorModel extends CommonModel {
 	@JsonProperty("floorName")
 	private String floorName;
 	
+	@JsonProperty("hotel")
+	private HotelModel hotelModel;
+	
 	@JsonProperty("rooms")
-	private Set<RoomModel> roomModels;
+	private List<RoomModel> roomModels;
+	
 }

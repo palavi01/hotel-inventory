@@ -1,13 +1,14 @@
 package com.cts.hotel.entity;
 
-import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,11 +26,11 @@ public class RoomTypeEntity extends CommonEntity {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "roomType_id")
+	@Column(name = "roomtype_id")
 	@JsonProperty("roomTypeId")
 	private Long roomTypeId;
 
-	@Column(name = "roomType_name")
+	@Column(name = "roomtype_name", nullable = false, length = 50)
 	@JsonProperty("roomTypeName")
 	private String roomTypeName;
 	
@@ -37,9 +38,10 @@ public class RoomTypeEntity extends CommonEntity {
 	@JsonProperty("description")
 	private String description;
 	
-	@ManyToMany(mappedBy = "roomTypeEntities")
-	@JsonProperty("rooms")
-	private List<RoomEntity> roomEntities;
+	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE })
+	@JoinColumn(name = "hotel_id", nullable = false)
+	@JsonProperty("hotel")
+	private HotelEntity hotelEntity;
 	
 	@Override
 	public String toString() {

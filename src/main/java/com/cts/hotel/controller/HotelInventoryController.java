@@ -31,7 +31,6 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @CrossOrigin(origins = "*")
-
 @RequestMapping("v1/hotel")
 @Tag(name = "Hotel", description = "Hotel Inventory Management System")
 public class HotelInventoryController {
@@ -40,24 +39,24 @@ public class HotelInventoryController {
     private HotelInventoryService hotelInventoryService;
 	
 	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-	@Operation(summary = "Adding Hotels", 
+	@Operation(summary = "Adding Rooms", 
 	 			responses = {@ApiResponse(responseCode = "201", description = "Hotel Added Successfully", content = @Content(schema = @Schema(implementation = String.class))),
 	 					     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
 	 			requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = HotelModel.class))))
-    public Mono<HotelModel> createHotel(@org.springframework.web.bind.annotation.RequestBody @Valid HotelModel hotelModel) {
+    public Mono<RoomModel> createRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
 
-        return hotelInventoryService.createHotel(hotelModel);
+        return hotelInventoryService.createRoom(roomModel);
 
     }
 	
 	@PutMapping(consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-	@Operation(summary = "Updating Hotels", 
+	@Operation(summary = "Updating Rooms", 
 				responses = {@ApiResponse(responseCode = "200", description = "Hotel Updated Successfully", content = @Content(schema = @Schema(implementation = String.class))),
 				     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
 				requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = HotelModel.class))))
-    public Mono<HotelModel> updateHotel(@org.springframework.web.bind.annotation.RequestBody @Valid HotelModel hotelModel) {
+    public Mono<RoomModel> updateRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
 
-        return hotelInventoryService.updateHotel(hotelModel);
+        return hotelInventoryService.updateRoom(roomModel);
     }
 	
 	@GetMapping(value = "/fetch-rooms", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })

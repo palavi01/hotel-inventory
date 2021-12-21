@@ -15,12 +15,12 @@ public class RoomModel extends CommonModel {
 	@JsonProperty("roomNumber")
 	private String roomNumber;
 	
-	@JsonProperty("roomTypeName")
-	private String roomTypeName; 
+	@JsonProperty("hotel")
+	private HotelModel hotelModel;
 	
-	@JsonProperty("floorName")
-	private String floorName;
+	@JsonProperty("roomType")
+	private RoomTypeModel roomTypeModel;
 	
-	@JsonProperty("roomTypeId")
-	private String roomTypeId; 
+	@JsonProperty("floor")
+	private FloorModel floorModel;
 }

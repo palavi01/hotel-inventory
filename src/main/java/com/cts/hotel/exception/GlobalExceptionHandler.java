@@ -19,7 +19,7 @@ public class GlobalExceptionHandler implements ErrorWebExceptionHandler {
 		if (ex instanceof HotelNotFoundException) {
 			exchange.getResponse().setStatusCode(HttpStatus.NOT_FOUND);
 			return exchange.getResponse().writeWith(Mono.just(errorMessage));
-		} else if (ex instanceof HotelDataException) {
+		} else if (ex instanceof DataNotFoundException) {
 			exchange.getResponse().setStatusCode(HttpStatus.BAD_REQUEST);
 			return exchange.getResponse().writeWith(Mono.just(errorMessage));
 		}

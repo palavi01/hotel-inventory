@@ -9,8 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -32,50 +31,17 @@ public class HotelEntity extends CommonEntity {
 	@JsonProperty("hotelId")
 	private Long hotelId;
 
-	@Column(name = "hotel_name", nullable = false, length = 10)
+	@Column(name = "hotel_name", nullable = false, length = 100)
 	@JsonProperty("hotelName")
 	private String hotelName;
 	
-	@Column(name = "address_line1", nullable = false, length = 50)
-	@JsonProperty("addressLine1")
-	private String addressLine1;
-
-	@Column(name = "address_line2")
-	@JsonProperty("addressLine2")
-	private String addressLine2;
-	
-	@Column(name = "landmark")
-	@JsonProperty("landmark")
-	private String landmark;
-
-	@Column(name = "latitude")
-	@JsonProperty("latitude")
-	private String latitude;
-
-	@Column(name = "longitude")
-	@JsonProperty("longitude")
-	private String longitude;
-
-	@Column(name = "mobile_no", nullable = false, length = 10)
-	@JsonProperty("mobileNo")
-	private String mobileNo;
-
-	@Column(name = "email_id", nullable = false, length = 50)
-	@JsonProperty("emailId")
-	private String emailId;
-	
-	@Column(name = "website", length = 50)
-    @JsonProperty("website")
-    private String website;
-
-	@Column(name = "pinCode", nullable = false, length = 7)
-    @JsonProperty("pinCode")
-    private String pinCode;
-
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
-	@JoinTable
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotelEntity", cascade = { CascadeType.ALL })
 	@JsonProperty("floors")
 	private List<FloorEntity> floorEntities;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotelEntity", cascade = { CascadeType.ALL })
+	@JsonProperty("roomTypes")
+	private List<RoomTypeEntity> roomTypeEntities;
 
 	@Override
 	public String toString() {
