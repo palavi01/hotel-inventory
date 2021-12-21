@@ -88,6 +88,26 @@
 			"response": []
 		},
 		{
+			"name": "404 Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/v1/hotel/fetch-roomss",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel",
+						"fetch-roomss"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Fetch Room Types",
 			"request": {
 				"method": "GET",
