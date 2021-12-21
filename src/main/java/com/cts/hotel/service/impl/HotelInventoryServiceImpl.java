@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.cts.hotel.dao.FloorDao;
 import com.cts.hotel.dao.HotelDao;
@@ -24,9 +25,6 @@ import com.cts.hotel.model.HotelModel;
 import com.cts.hotel.model.RoomModel;
 import com.cts.hotel.model.RoomTypeModel;
 import com.cts.hotel.service.HotelInventoryService;
-
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 @Service
 public class HotelInventoryServiceImpl implements HotelInventoryService {
@@ -50,10 +48,10 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	private KafkaTemplate<String, RoomModel> kafkaTemplate;
 	
 	@Override
-	public Mono<RoomModel> createRoom(RoomModel roomModel) {
+	public RoomModel createRoom(RoomModel roomModel) {
 		
 		roomModel.setCreatedBy(1L);
-		roomModel.setCreatedDate(util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+		roomModel.setCreatedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
         roomModel.setStatus(Status.ACTIVE.ordinal());
         RoomEntity roomEntity = util.transform(roomModel, RoomEntity.class);
         Optional<RoomTypeEntity> roomTypeEntityOptional = roomTypeDao.findById(Long.valueOf(roomModel.getRoomTypeModel().getRoomTypeId()));
@@ -77,22 +75,22 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
             throw new DataNotFoundException("Invalid Floor");
         }
         
-        roomDao.save(roomEntity);
+        roomEntity = roomDao.save(roomEntity);
         roomModel = util.transform(roomEntity, RoomModel.class);
         
-		return Mono.just(roomModel);
+		return roomModel;
 	}
 
 	@Override
-	public Mono<RoomModel> updateRoom(RoomModel roomModel) {
+	public RoomModel updateRoom(RoomModel roomModel) {
 		
 		Optional<RoomEntity> roomEntityOptional = roomDao.findById(Long.valueOf(roomModel.getRoomId()));
 		if (roomEntityOptional.isPresent()) {
 			RoomEntity roomEntity = roomEntityOptional.get();
-			roomModel.setModifiedBy(1L);
-			roomModel.setModifiedDate(util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
-	        roomModel.setStatus(roomModel.getStatus());
-	        roomEntity = util.transform(roomModel, RoomEntity.class);
+			roomEntity.setModifiedBy(1L);
+			roomEntity.setModifiedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+			roomEntity.setStatus(roomModel.getStatus());
+			roomEntity.setRoomNumber(roomModel.getRoomNumber());
 	        Optional<RoomTypeEntity> roomTypeEntityOptional = roomTypeDao.findById(Long.valueOf(roomModel.getRoomTypeModel().getRoomTypeId()));
 	        if (roomTypeEntityOptional.isPresent()) {
 	            roomEntity.setRoomTypeEntity(roomTypeEntityOptional.get());
@@ -120,57 +118,59 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
             throw new DataNotFoundException("Invalid Room Id");
         }
         
-		return Mono.just(roomModel);
+		return roomModel;
 	}
 
 	@Override
-	public Flux<List<RoomModel>> fetchRooms(String hotelId) {
+	public List<RoomModel> fetchRooms(String hotelId) {
 		
 		List<RoomEntity> roomEntities = roomDao.findByStatusAndHotelEntityHotelId(Status.ACTIVE.ordinal(), Long.valueOf(hotelId));
-		List<RoomModel> roomModels = new ArrayList<>();
-		roomEntities.forEach(re -> {
-			RoomModel roomModel = new RoomModel();
-			roomModel = util.transform(re, RoomModel.class);
-			roomModel.setFloorModel(util.transform(re.getFloorEntity(), FloorModel.class));
-			roomModel.setHotelModel(util.transform(re.getHotelEntity(), HotelModel.class));
-			roomModel.setRoomTypeModel(util.transform(re.getRoomTypeEntity(), RoomTypeModel.class));
-			roomModels.add(roomModel);
-		});
-		return Flux.just(roomModels);
+		final List<RoomModel> roomModels = new ArrayList<>();
+		if (!CollectionUtils.isEmpty(roomEntities)) {
+			roomEntities.forEach(re -> {
+				RoomModel roomModel = new RoomModel();
+				roomModel = util.transform(re, RoomModel.class);
+				roomModel.setFloorModel(util.transform(re.getFloorEntity(), FloorModel.class));
+				roomModel.setHotelModel(util.transform(re.getHotelEntity(), HotelModel.class));
+				roomModel.setRoomTypeModel(util.transform(re.getRoomTypeEntity(), RoomTypeModel.class));
+				roomModels.add(roomModel);
+			});
+		}
+		return roomModels;
 	}
 
 	@Override
-	public Flux<List<RoomTypeModel>> fetchRoomTypes(String hotelId) {
+	public List<RoomTypeModel> fetchRoomTypes(String hotelId) {
 		
-		List<RoomTypeEntity> roomEntities = roomTypeDao.findByStatusAndHotelEntityHotelId(Status.ACTIVE.ordinal(), Long.valueOf(hotelId));
+		List<RoomTypeEntity> roomTypeEntities = roomTypeDao.findByStatusAndHotelEntityHotelId(Status.ACTIVE.ordinal(), Long.valueOf(hotelId));
 		List<RoomTypeModel> roomTypeModels = new ArrayList<>();
-		roomEntities.forEach(rte -> {
+		for(RoomTypeEntity rte : roomTypeEntities) {
 			RoomTypeModel roomTypeModel = new RoomTypeModel();
 			roomTypeModel = util.transform(rte, RoomTypeModel.class);
 			roomTypeModels.add(roomTypeModel);
-		});
-		return Flux.just(roomTypeModels);
+		}
+		return roomTypeModels;
 	}
 
 	@Override
-	public Flux<List<FloorModel>> fetchFloors(String hotelId) {
+	public List<FloorModel> fetchFloors(String hotelId) {
 		
 		List<FloorEntity> floorEntities = floorDao.findByStatusAndHotelEntityHotelId(Status.ACTIVE.ordinal(), Long.valueOf(hotelId));
 		List<FloorModel> floorModels = new ArrayList<>();
-		floorEntities.forEach(fl -> {
+		for(FloorEntity fl : floorEntities) {
 			FloorModel floorModel = new FloorModel();
 			floorModel = util.transform(fl, FloorModel.class);
 			List<RoomModel> roomModels = new ArrayList<>();
-			fl.getRoomEntities().forEach(room -> {
+			for(RoomEntity room : fl.getRoomEntities()) {
 				RoomModel roomModel = new RoomModel();
 				roomModel = util.transform(room, RoomModel.class);
 				roomModel.setHotelModel(util.transform(room.getHotelEntity(), HotelModel.class));
 				roomModel.setRoomTypeModel(util.transform(room.getRoomTypeEntity(), RoomTypeModel.class));
 				roomModels.add(roomModel);
-			});
+			}
 			floorModel.setRoomModels(roomModels);
 			floorModels.add(floorModel);
-		});
-		return Flux.just(floorModels);
+		}
+		return floorModels;
 	}
 }

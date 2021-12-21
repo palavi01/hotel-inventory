@@ -25,7 +25,26 @@ public class Util {
 		}
 	}
 	
-	public String getCurrentDateTime(String pattern) {
+	/*public <T> T transform(Object object, Class<T> type) {
+		
+        try {
+            return Objects.nonNull(object) ? transformByJSON(object, type) : null;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage(), e.getCause());
+        }
+    }
+
+   public static <T> T transformByJSON(Object from, Class<T> valueType) throws Exception {
+	   
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
+        String json = objectMapper.writeValueAsString(from);
+        return objectMapper.readValue(json, valueType);
+    }*/
+   
+	
+	public static String getCurrentDateTime(String pattern) {
 		
 		LocalDateTime now = LocalDateTime.now();  
         DateTimeFormatter format = DateTimeFormatter.ofPattern(pattern);

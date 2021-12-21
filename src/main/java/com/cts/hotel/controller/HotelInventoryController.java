@@ -26,8 +26,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -43,8 +41,9 @@ public class HotelInventoryController {
 	 			responses = {@ApiResponse(responseCode = "201", description = "Hotel Added Successfully", content = @Content(schema = @Schema(implementation = String.class))),
 	 					     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
 	 			requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = HotelModel.class))))
-    public Mono<RoomModel> createRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
+    public RoomModel createRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
 
+        //return Mono.just(hotelInventoryService.createRoom(roomModel));
         return hotelInventoryService.createRoom(roomModel);
 
     }
@@ -54,8 +53,9 @@ public class HotelInventoryController {
 				responses = {@ApiResponse(responseCode = "200", description = "Hotel Updated Successfully", content = @Content(schema = @Schema(implementation = String.class))),
 				     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
 				requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = HotelModel.class))))
-    public Mono<RoomModel> updateRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
+    public RoomModel updateRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
 
+        //return Mono.just(hotelInventoryService.updateRoom(roomModel));
         return hotelInventoryService.updateRoom(roomModel);
     }
 	
@@ -63,8 +63,9 @@ public class HotelInventoryController {
 	@Operation(summary = "Get a List of Rooms - should return Room Number, Room Type, Floor", 
 	responses = {@ApiResponse(responseCode = "200", description = "Get a List of Rooms - should return Room Number, Room Type, Floor", content = @Content(schema = @Schema(implementation = String.class))),
 				@ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))})
-    public Flux<List<RoomModel>> fetchRooms(@RequestParam(required = true) String hotelId) {
+    public List<RoomModel> fetchRooms(@RequestParam(required = true) String hotelId) {
 
+        //return Flux.just(hotelInventoryService.fetchRooms(hotelId));
         return hotelInventoryService.fetchRooms(hotelId);
     }
 	
@@ -72,8 +73,9 @@ public class HotelInventoryController {
 	@Operation(summary = "Get a List of Room Types - should return room type, Room description", 
 	responses = {@ApiResponse(responseCode = "200", description = "Get a List of Rooms - should return Room Number, Room Type, Floor", content = @Content(schema = @Schema(implementation = String.class))),
 				@ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))})
-    public Flux<List<RoomTypeModel>> fetchRoomTypes(@RequestParam(required = true) String hotelId) {
+    public List<RoomTypeModel> fetchRoomTypes(@RequestParam(required = true) String hotelId) {
 
+		//return Flux.just(hotelInventoryService.fetchRoomTypes(hotelId));
 		return hotelInventoryService.fetchRoomTypes(hotelId);
     }
 	
@@ -81,8 +83,9 @@ public class HotelInventoryController {
 	@Operation(summary = "Get a List of Floors - should return floor number, all rooms and respective details belonging to that floor", 
 	responses = {@ApiResponse(responseCode = "200", description = "Get a List of Rooms - should return Room Number, Room Type, Floor", content = @Content(schema = @Schema(implementation = String.class))),
 				@ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))})
-    public Flux<List<FloorModel>> fetchFloors(@RequestParam(required = true) String hotelId) {
+    public List<FloorModel> fetchFloors(@RequestParam(required = true) String hotelId) {
 
+        //return Flux.just(hotelInventoryService.fetchFloors(hotelId));
         return hotelInventoryService.fetchFloors(hotelId);
 
     }
