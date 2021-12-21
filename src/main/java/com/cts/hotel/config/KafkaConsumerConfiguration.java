@@ -33,7 +33,7 @@ public class KafkaConsumerConfiguration {
     private String kafkaPort;
 
     @Bean
-    public ConsumerFactory<String, RoomModel> roomConsumerFactory() {
+    public ConsumerFactory<String, RoomModel> addRoomConsumerFactory() {
 
         Map<String, Object> config = new HashMap<>();
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaURL + ":" + kafkaPort);
@@ -49,10 +49,35 @@ public class KafkaConsumerConfiguration {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, RoomModel> roomKafkaListenerFactory() {
+    public ConcurrentKafkaListenerContainerFactory<String, RoomModel> addRoomKafkaListenerFactory() {
     	
         ConcurrentKafkaListenerContainerFactory<String, RoomModel> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(roomConsumerFactory());
+        factory.setConsumerFactory(addRoomConsumerFactory());
+        factory.setErrorHandler(new KafkaErrorHandler());
+        return factory;
+    }
+    
+    @Bean
+    public ConsumerFactory<String, RoomModel> updateRoomConsumerFactory() {
+
+        Map<String, Object> config = new HashMap<>();
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaURL + ":" + kafkaPort);
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, "group-id");
+        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+        config.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, "6000");
+        config.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
+
+        ErrorHandlingDeserializer<String> headerErrorHandlingDeserializer = new ErrorHandlingDeserializer<>(new StringDeserializer());
+        ErrorHandlingDeserializer<RoomModel> errorHandlingDeserializer = new ErrorHandlingDeserializer<>(new JsonDeserializer<>(RoomModel.class, objectMapper()));
+        return new DefaultKafkaConsumerFactory<>(config, headerErrorHandlingDeserializer, errorHandlingDeserializer);
+    }
+
+    @Bean
+    public ConcurrentKafkaListenerContainerFactory<String, RoomModel> updateRoomKafkaListenerFactory() {
+    	
+        ConcurrentKafkaListenerContainerFactory<String, RoomModel> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(updateRoomConsumerFactory());
         factory.setErrorHandler(new KafkaErrorHandler());
         return factory;
     }

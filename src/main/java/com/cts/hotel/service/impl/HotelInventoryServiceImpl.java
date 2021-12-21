@@ -2,22 +2,19 @@ package com.cts.hotel.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import com.cts.hotel.dao.FloorDao;
-import com.cts.hotel.dao.HotelDao;
 import com.cts.hotel.dao.RoomDao;
 import com.cts.hotel.dao.RoomTypeDao;
 import com.cts.hotel.entity.FloorEntity;
-import com.cts.hotel.entity.HotelEntity;
 import com.cts.hotel.entity.RoomEntity;
 import com.cts.hotel.entity.RoomTypeEntity;
-import com.cts.hotel.exception.DataNotFoundException;
 import com.cts.hotel.helper.Status;
 import com.cts.hotel.helper.Util;
 import com.cts.hotel.model.FloorModel;
@@ -33,9 +30,6 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	private Util util;
 	
 	@Autowired
-	private HotelDao hotelDao;
-	
-	@Autowired
 	private FloorDao floorDao;
 	
 	@Autowired
@@ -44,80 +38,26 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	@Autowired
 	private RoomTypeDao roomTypeDao;
 	
+	@Value("${add_room_topic}")
+    private String addRoomTopic;
+	
+	@Value("${update_room_topic}")
+    private String updateRoomTopic;
+	
 	@Autowired
 	private KafkaTemplate<String, RoomModel> kafkaTemplate;
 	
 	@Override
 	public RoomModel createRoom(RoomModel roomModel) {
 		
-		roomModel.setCreatedBy(1L);
-		roomModel.setCreatedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
-        roomModel.setStatus(Status.ACTIVE.ordinal());
-        RoomEntity roomEntity = util.transform(roomModel, RoomEntity.class);
-        Optional<RoomTypeEntity> roomTypeEntityOptional = roomTypeDao.findById(Long.valueOf(roomModel.getRoomTypeModel().getRoomTypeId()));
-        if (roomTypeEntityOptional.isPresent()) {
-            roomEntity.setRoomTypeEntity(roomTypeEntityOptional.get());
-        } else {
-            throw new DataNotFoundException("Invalid Room Type");
-        }
-        
-        Optional<HotelEntity> hotelEntityOptional = hotelDao.findById(Long.valueOf(roomModel.getHotelModel().getHotelId()));
-        if (hotelEntityOptional.isPresent()) {
-            roomEntity.setHotelEntity(hotelEntityOptional.get());
-        } else {
-            throw new DataNotFoundException("Invalid Hotel");
-        }
-        
-        Optional<FloorEntity> floorEntityOptional = floorDao.findById(Long.valueOf(roomModel.getFloorModel().getFloorId()));
-        if (floorEntityOptional.isPresent()) {
-            roomEntity.setFloorEntity(floorEntityOptional.get());
-        } else {
-            throw new DataNotFoundException("Invalid Floor");
-        }
-        
-        roomEntity = roomDao.save(roomEntity);
-        roomModel = util.transform(roomEntity, RoomModel.class);
-        
+		kafkaTemplate.send(addRoomTopic, roomModel);
 		return roomModel;
 	}
 
 	@Override
 	public RoomModel updateRoom(RoomModel roomModel) {
 		
-		Optional<RoomEntity> roomEntityOptional = roomDao.findById(Long.valueOf(roomModel.getRoomId()));
-		if (roomEntityOptional.isPresent()) {
-			RoomEntity roomEntity = roomEntityOptional.get();
-			roomEntity.setModifiedBy(1L);
-			roomEntity.setModifiedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
-			roomEntity.setStatus(roomModel.getStatus());
-			roomEntity.setRoomNumber(roomModel.getRoomNumber());
-	        Optional<RoomTypeEntity> roomTypeEntityOptional = roomTypeDao.findById(Long.valueOf(roomModel.getRoomTypeModel().getRoomTypeId()));
-	        if (roomTypeEntityOptional.isPresent()) {
-	            roomEntity.setRoomTypeEntity(roomTypeEntityOptional.get());
-	        } else {
-	            throw new DataNotFoundException("Invalid Room Type");
-	        }
-	        
-	        Optional<HotelEntity> hotelEntityOptional = hotelDao.findById(Long.valueOf(roomModel.getHotelModel().getHotelId()));
-	        if (hotelEntityOptional.isPresent()) {
-	            roomEntity.setHotelEntity(hotelEntityOptional.get());
-	        } else {
-	            throw new DataNotFoundException("Invalid Hotel");
-	        }
-	        
-	        Optional<FloorEntity> floorEntityOptional = floorDao.findById(Long.valueOf(roomModel.getFloorModel().getFloorId()));
-	        if (floorEntityOptional.isPresent()) {
-	            roomEntity.setFloorEntity(floorEntityOptional.get());
-	        } else {
-	            throw new DataNotFoundException("Invalid Floor");
-	        }
-	        
-	        roomDao.save(roomEntity);
-	        roomModel = util.transform(roomEntity, RoomModel.class);
-        } else {
-            throw new DataNotFoundException("Invalid Room Id");
-        }
-        
+		kafkaTemplate.send(updateRoomTopic, roomModel);
 		return roomModel;
 	}
 

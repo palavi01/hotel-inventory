@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "8f91bb84-7d27-45f3-b172-7e4c0b0c1a96",
+		"name": "Hotel Inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Room",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"roomNumber\": \"101\",\r\n  \"roomType\": {\r\n    \"roomTypeId\": \"1\"\r\n  },\r\n  \"floor\": {\r\n    \"floorId\": \"1\"\r\n  },\r\n  \"hotel\": {\r\n    \"hotelId\": \"1\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7080/v1/hotel",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Room",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"roomId\": \"1\",\r\n  \"roomNumber\": \"1001\",\r\n  \"status\": \"1\",\r\n  \"roomType\": {\r\n    \"roomTypeId\": \"1\"\r\n  },\r\n  \"floor\": {\r\n    \"floorId\": \"1\"\r\n  },\r\n  \"hotel\": {\r\n    \"hotelId\": \"1\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7080/v1/hotel",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Rooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/v1/hotel/fetch-rooms?hotelId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel",
+						"fetch-rooms"
+					],
+					"query": [
+						{
+							"key": "hotelId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Room Types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/v1/hotel/fetch-roomtypes?hotelId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel",
+						"fetch-roomtypes"
+					],
+					"query": [
+						{
+							"key": "hotelId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Floors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/v1/hotel/fetch-floors?hotelId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel",
+						"fetch-floors"
+					],
+					"query": [
+						{
+							"key": "hotelId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
