@@ -3,6 +3,7 @@ package com.cts.hotel.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.reactivestreams.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -22,6 +23,9 @@ import com.cts.hotel.model.HotelModel;
 import com.cts.hotel.model.RoomModel;
 import com.cts.hotel.model.RoomTypeModel;
 import com.cts.hotel.service.HotelInventoryService;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 public class HotelInventoryServiceImpl implements HotelInventoryService {
@@ -48,41 +52,55 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	private KafkaTemplate<String, RoomModel> kafkaTemplate;
 	
 	@Override
-	public RoomModel createRoom(RoomModel roomModel) {
+	public Mono<RoomModel> createRoom(RoomModel roomModel) {
 		
 		kafkaTemplate.send(addRoomTopic, roomModel);
 		return roomModel;
 	}
 
 	@Override
-	public RoomModel updateRoom(RoomModel roomModel) {
+	public Mono<RoomModel> updateRoom(RoomModel roomModel) {
 		
 		kafkaTemplate.send(updateRoomTopic, roomModel);
 		return roomModel;
 	}
 
 	@Override
-	public List<RoomModel> fetchRooms(String hotelId) {
+	public Flux<List<RoomModel>> fetchRooms(String hotelId) {
 		
-		List<RoomEntity> roomEntities = roomDao.findByStatusAndHotelEntityHotelId(Status.ACTIVE.ordinal(), Long.valueOf(hotelId));
-		final List<RoomModel> roomModels = new ArrayList<>();
-		if (!CollectionUtils.isEmpty(roomEntities)) {
-			roomEntities.forEach(re -> {
-				RoomModel roomModel = new RoomModel();
-				roomModel = util.transform(re, RoomModel.class);
-				roomModel.setFloorModel(util.transform(re.getFloorEntity(), FloorModel.class));
-				roomModel.setHotelModel(util.transform(re.getHotelEntity(), HotelModel.class));
-				roomModel.setRoomTypeModel(util.transform(re.getRoomTypeEntity(), RoomTypeModel.class));
-				roomModels.add(roomModel);
-			});
-		}
-		return roomModels;
+		Flux<List<RoomEntity>> roomEntities = roomDao.findByStatusAndHotelId(Status.ACTIVE.ordinal(), Long.valueOf(hotelId));
+		Flux<List<RoomEntity>> fluxRoomEntities = Flux.just(roomEntities).log();
+		Flux<List<RoomModel>> roomModels = fluxRoomEntities.flatMap(fre -> {
+			List<RoomModel> roomModels1 = null;
+			RoomModel roomModel = new RoomModel();
+			roomModel = util.transform(fre, RoomModel.class);
+			roomModel.setFloorModel(util.transform(((RoomEntity) fre).getFloorEntity(), FloorModel.class));
+			roomModel.setHotelModel(util.transform(((RoomEntity) fre).getHotelEntity(), HotelModel.class));
+			roomModel.setRoomTypeModel(util.transform(((RoomEntity) fre).getRoomTypeEntity(), RoomTypeModel.class));
+			roomModels1.add(roomModel);
+			
+			
+			return (Publisher<? extends List<RoomModel>>) roomModels1;
+		});
+		
+//		final List<RoomModel> roomModels = new ArrayList<>();
+//		if (!CollectionUtils.isEmpty(roomEntities)) {
+//			roomEntities.forEach(re -> {
+//				RoomModel roomModel = new RoomModel();
+//				roomModel = util.transform(re, RoomModel.class);
+//				roomModel.setFloorModel(util.transform(re.getFloorEntity(), FloorModel.class));
+//				roomModel.setHotelModel(util.transform(re.getHotelEntity(), HotelModel.class));
+//				roomModel.setRoomTypeModel(util.transform(re.getRoomTypeEntity(), RoomTypeModel.class));
+//				roomModels.add(roomModel);
+//			});
+//		}
+		return null;
 	}
 
 	@Override
-	public List<RoomTypeModel> fetchRoomTypes(String hotelId) {
+	public Flux<List<RoomTypeModel>> fetchRoomTypes(String hotelId) {
 		
-		List<RoomTypeEntity> roomTypeEntities = roomTypeDao.findByStatusAndHotelEntityHotelId(Status.ACTIVE.ordinal(), Long.valueOf(hotelId));
+		Flux<List<RoomTypeEntity>> roomTypeEntities = roomTypeDao.findByStatusAndHotelId(Status.ACTIVE.ordinal(), Long.valueOf(hotelId));
 		List<RoomTypeModel> roomTypeModels = new ArrayList<>();
 		for(RoomTypeEntity rte : roomTypeEntities) {
 			RoomTypeModel roomTypeModel = new RoomTypeModel();
@@ -93,9 +111,9 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	}
 
 	@Override
-	public List<FloorModel> fetchFloors(String hotelId) {
+	public Flux<List<FloorModel>> fetchFloors(String hotelId) {
 		
-		List<FloorEntity> floorEntities = floorDao.findByStatusAndHotelEntityHotelId(Status.ACTIVE.ordinal(), Long.valueOf(hotelId));
+		Flux<List<FloorEntity>> floorEntities = floorDao.findByStatusAndHotelId(Status.ACTIVE.ordinal(), Long.valueOf(hotelId));
 		List<FloorModel> floorModels = new ArrayList<>();
 		for(FloorEntity fl : floorEntities) {
 			FloorModel floorModel = new FloorModel();

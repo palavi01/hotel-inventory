@@ -6,7 +6,6 @@ import org.springframework.core.io.buffer.DataBufferFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
-import org.springframework.web.servlet.NoHandlerFoundException;
 
 import reactor.core.publisher.Mono;
 
@@ -27,10 +26,11 @@ public class GlobalExceptionHandler implements ErrorWebExceptionHandler {
 		} else if (ex instanceof DataNotFoundException) {
 			exchange.getResponse().setStatusCode(HttpStatus.BAD_REQUEST);
 			return exchange.getResponse().writeWith(Mono.just(errorMessage));
-		} else if (ex instanceof NoHandlerFoundException) {
-			exchange.getResponse().setStatusCode(HttpStatus.NOT_FOUND);
-			return exchange.getResponse().writeWith(Mono.just(errorMessage));
-		}
+		} /*
+			 * else if (ex instanceof PostNotFoundException) {
+			 * exchange.getResponse().setStatusCode(HttpStatus.NOT_FOUND); return
+			 * exchange.getResponse().writeWith(Mono.just(errorMessage)); }
+			 */
 
 		exchange.getResponse().setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
 		return exchange.getResponse().writeWith(Mono.just(errorMessage));

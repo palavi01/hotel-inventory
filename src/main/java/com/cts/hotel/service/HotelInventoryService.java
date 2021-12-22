@@ -6,15 +6,18 @@ import com.cts.hotel.model.FloorModel;
 import com.cts.hotel.model.RoomModel;
 import com.cts.hotel.model.RoomTypeModel;
 
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
 public interface HotelInventoryService {
 
-	RoomModel createRoom(RoomModel roomModel);
+	Mono<RoomModel> createRoom(RoomModel roomModel);
 
-	RoomModel updateRoom(RoomModel roomModel);
+	Mono<RoomModel> updateRoom(RoomModel roomModel);
 
-	List<RoomModel> fetchRooms(String hotelId);
+	Flux<List<RoomModel>> fetchRooms(String hotelId);
 	
-	List<RoomTypeModel> fetchRoomTypes(String hotelId);
+	Flux<List<RoomTypeModel>> fetchRoomTypes(String hotelId);
 
-	List<FloorModel> fetchFloors(String hotelId);
+	Flux<List<FloorModel>> fetchFloors(String hotelId);
 }
