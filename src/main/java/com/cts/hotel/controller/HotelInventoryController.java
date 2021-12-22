@@ -36,9 +36,9 @@ public class HotelInventoryController {
 	@Autowired
     private HotelInventoryService hotelInventoryService;
 	
-	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	@PostMapping()
 	@Operation(summary = "Adding Rooms", 
-	 			responses = {@ApiResponse(responseCode = "201", description = "Hotel Added Successfully", content = @Content(schema = @Schema(implementation = String.class))),
+	 			responses = {@ApiResponse(responseCode = "201", description = "Room Added Successfully", content = @Content(schema = @Schema(implementation = String.class))),
 	 					     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
 	 			requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = HotelModel.class))))
     public Mono<RoomModel> createRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
@@ -47,9 +47,9 @@ public class HotelInventoryController {
 
     }
 	
-	@PutMapping(consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	@PutMapping()
 	@Operation(summary = "Updating Rooms", 
-				responses = {@ApiResponse(responseCode = "200", description = "Hotel Updated Successfully", content = @Content(schema = @Schema(implementation = String.class))),
+				responses = {@ApiResponse(responseCode = "200", description = "Room Updated Successfully", content = @Content(schema = @Schema(implementation = String.class))),
 				     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
 				requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = HotelModel.class))))
     public Mono<RoomModel> updateRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
@@ -57,7 +57,7 @@ public class HotelInventoryController {
         return hotelInventoryService.updateRoom(roomModel);
     }
 	
-	@GetMapping(value = "/fetch-rooms", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	@GetMapping(value = "/fetch-rooms", produces = { MediaType.APPLICATION_JSON_VALUE})
 	@Operation(summary = "Get a List of Rooms - should return Room Number, Room Type, Floor", 
 	responses = {@ApiResponse(responseCode = "200", description = "Get a List of Rooms - should return Room Number, Room Type, Floor", content = @Content(schema = @Schema(implementation = String.class))),
 				@ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))})
@@ -66,7 +66,7 @@ public class HotelInventoryController {
         return hotelInventoryService.fetchRooms(hotelId);
     }
 	
-	@GetMapping(value = "/fetch-roomtypes", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	@GetMapping(value = "/fetch-roomtypes", produces = { MediaType.APPLICATION_JSON_VALUE})
 	@Operation(summary = "Get a List of Room Types - should return room type, Room description", 
 	responses = {@ApiResponse(responseCode = "200", description = "Get a List of Rooms - should return Room Number, Room Type, Floor", content = @Content(schema = @Schema(implementation = String.class))),
 				@ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))})
@@ -75,7 +75,7 @@ public class HotelInventoryController {
 		return hotelInventoryService.fetchRoomTypes(hotelId);
     }
 	
-	@GetMapping(value = "/fetch-floors", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	@GetMapping(value = "/fetch-floors", produces = { MediaType.APPLICATION_JSON_VALUE})
 	@Operation(summary = "Get a List of Floors - should return floor number, all rooms and respective details belonging to that floor", 
 	responses = {@ApiResponse(responseCode = "200", description = "Get a List of Rooms - should return Room Number, Room Type, Floor", content = @Content(schema = @Schema(implementation = String.class))),
 				@ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))})
@@ -83,5 +83,25 @@ public class HotelInventoryController {
 
         return hotelInventoryService.fetchFloors(hotelId);
 
+    }
+	
+	@PostMapping("/add-room-types")
+	@Operation(summary = "Adding Room Types", 
+	 			responses = {@ApiResponse(responseCode = "201", description = "Room Types Added Successfully", content = @Content(schema = @Schema(implementation = String.class))),
+	 					     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
+	 			requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = RoomTypeModel.class))))
+    public Mono<RoomTypeModel> addRoomTypes(@org.springframework.web.bind.annotation.RequestBody RoomTypeModel roomTypeModel) {
+
+        return hotelInventoryService.addRoomTypes(roomTypeModel);
+    }
+	
+	@PostMapping("/add-floors")
+	@Operation(summary = "Adding Floor Values", 
+	 			responses = {@ApiResponse(responseCode = "201", description = "Floor Added Successfully", content = @Content(schema = @Schema(implementation = String.class))),
+	 					     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
+	 			requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = FloorModel.class))))
+    public Mono<FloorModel> addFloors(@org.springframework.web.bind.annotation.RequestBody FloorModel floorModel) {
+
+        return hotelInventoryService.addFloors(floorModel);
     }
 }

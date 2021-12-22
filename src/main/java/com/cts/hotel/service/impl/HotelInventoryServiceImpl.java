@@ -45,18 +45,37 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	@Autowired
 	private KafkaTemplate<String, RoomModel> kafkaTemplate;
 	
+	@Value("${not.found}")
+	private String notFound;
+	
 	@Override
 	public Mono<RoomModel> createRoom(RoomModel roomModel) {
 		
-		kafkaTemplate.send(addRoomTopic, roomModel);
-		return Mono.just(roomModel);
+		//kafkaTemplate.send(addRoomTopic, roomModel);
+		roomModel.setCreatedBy("1");
+		roomModel.setCreatedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+		roomModel.setStatus(Status.ACTIVE.ordinal());
+		RoomEntity roomEntity = util.transform(roomModel, RoomEntity.class);
+		System.err.println("roomEntity ==>> "+roomEntity);
+		return roomDao.save(roomEntity).log().map(re -> util.transform(re, RoomModel.class));
+		//return Mono.just(roomModel);
 	}
 
 	@Override
 	public Mono<RoomModel> updateRoom(RoomModel roomModel) {
 		
-		kafkaTemplate.send(updateRoomTopic, roomModel);
-		return Mono.just(roomModel);
+		//kafkaTemplate.send(updateRoomTopic, roomModel);
+		return roomDao.findById(roomModel.getRoomId()).flatMap(roomEntity -> {
+			roomEntity.setModifiedBy("1");
+			roomEntity.setModifiedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+			roomEntity.setStatus(roomModel.getStatus());
+			roomEntity.setRoomNumber(roomModel.getRoomNumber());
+			roomEntity.setRoomType(roomModel.getRoomType());
+			roomEntity.setFloorName(roomModel.getFloorName());
+			roomEntity.setHotelId(roomModel.getHotelId());
+			System.err.println("roomEntity ==>> "+roomEntity);
+			return roomDao.save(roomEntity).log().map(re -> util.transform(re, RoomModel.class));
+		});
 	}
 	
 	@Override
@@ -78,5 +97,27 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 		
 		Flux<FloorEntity> floorEntities = floorDao.findByStatusAndHotelId(Status.ACTIVE.ordinal(), hotelId);
 		return floorEntities.map(fe -> util.transform(fe, FloorModel.class));
+	}
+
+	@Override
+	public Mono<RoomTypeModel> addRoomTypes(RoomTypeModel roomTypeModel) {
+		
+		roomTypeModel.setCreatedBy("1");
+		roomTypeModel.setCreatedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+		roomTypeModel.setStatus(Status.ACTIVE.ordinal());
+		RoomTypeEntity roomTypeEntity = util.transform(roomTypeModel, RoomTypeEntity.class);
+		System.err.println("roomTypeEntity ==>> "+roomTypeEntity);
+		return roomTypeDao.save(roomTypeEntity).log().map(re -> util.transform(re, RoomTypeModel.class));
+	}
+
+	@Override
+	public Mono<FloorModel> addFloors(FloorModel floorModel) {
+		
+		floorModel.setCreatedBy("1");
+		floorModel.setCreatedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+		floorModel.setStatus(Status.ACTIVE.ordinal());
+		FloorEntity floorEntity = util.transform(floorModel, FloorEntity.class);
+		System.err.println("floorEntity ==>> "+floorEntity);
+		return floorDao.save(floorEntity).log().map(re -> util.transform(re, FloorModel.class));
 	}
 }

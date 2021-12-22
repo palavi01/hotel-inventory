@@ -18,4 +18,8 @@ public interface HotelInventoryService {
 	Flux<RoomTypeModel> fetchRoomTypes(String hotelId);
 
 	Flux<FloorModel> fetchFloors(String hotelId);
+
+	Mono<RoomTypeModel> addRoomTypes(RoomTypeModel roomTypeModel);
+
+	Mono<FloorModel> addFloors(FloorModel floorModel);
 }

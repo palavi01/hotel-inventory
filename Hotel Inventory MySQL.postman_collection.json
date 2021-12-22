@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "8f91bb84-7d27-45f3-b172-7e4c0b0c1a96",
+		"name": "Hotel Inventory MySQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Room",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"roomId\": \"1\",\r\n    \"roomNumber\": \"101\",\r\n    \"hotelId\": \"1\",\r\n    \"roomType\": \"AC\",\r\n    \"floorName\": \"1st Floor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7080/v1/hotel",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Room Type",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"roomTypeId\": \"1\",\r\n    \"roomTypeName\": \"Delux\",\r\n    \"hotelId\": \"1\",\r\n    \"description\": \"AC\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7080/v1/hotel/add-room-types",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel",
+						"add-room-types"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Floor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"floorId\": \"1\",\r\n    \"hotelId\": \"1\",\r\n    \"floorName\": \"1st Floor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7080/v1/hotel/add-floors",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel",
+						"add-floors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Room",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"roomId\": \"1\",\r\n    \"roomNumber\": \"1001\",\r\n    \"hotelId\": \"1\",\r\n    \"roomType\": \"NonAC\",\r\n    \"floorName\": \"2nd Floor\",\r\n    \"status\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7080/v1/hotel",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Rooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/v1/hotel/fetch-rooms?hotelId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel",
+						"fetch-rooms"
+					],
+					"query": [
+						{
+							"key": "hotelId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "404 Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/v1/hotel/fetch-roomss",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel",
+						"fetch-roomss"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Room Types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/v1/hotel/fetch-roomtypes?hotelId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel",
+						"fetch-roomtypes"
+					],
+					"query": [
+						{
+							"key": "hotelId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Floors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/v1/hotel/fetch-floors?hotelId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"v1",
+						"hotel",
+						"fetch-floors"
+					],
+					"query": [
+						{
+							"key": "hotelId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

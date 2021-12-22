@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "room")
+@Document(collection = "hotel")
 public class HotelEntity {
 
 	@Id
