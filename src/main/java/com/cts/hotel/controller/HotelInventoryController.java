@@ -1,7 +1,5 @@
 package com.cts.hotel.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +61,7 @@ public class HotelInventoryController {
 	@Operation(summary = "Get a List of Rooms - should return Room Number, Room Type, Floor", 
 	responses = {@ApiResponse(responseCode = "200", description = "Get a List of Rooms - should return Room Number, Room Type, Floor", content = @Content(schema = @Schema(implementation = String.class))),
 				@ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))})
-    public Flux<List<RoomModel>> fetchRooms(@RequestParam(required = true) String hotelId) {
+    public Flux<RoomModel> fetchRooms(@RequestParam(required = true) String hotelId) {
 
         return hotelInventoryService.fetchRooms(hotelId);
     }
@@ -72,7 +70,7 @@ public class HotelInventoryController {
 	@Operation(summary = "Get a List of Room Types - should return room type, Room description", 
 	responses = {@ApiResponse(responseCode = "200", description = "Get a List of Rooms - should return Room Number, Room Type, Floor", content = @Content(schema = @Schema(implementation = String.class))),
 				@ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))})
-    public Flux<List<RoomTypeModel>> fetchRoomTypes(@RequestParam(required = true) String hotelId) {
+    public Flux<RoomTypeModel> fetchRoomTypes(@RequestParam(required = true) String hotelId) {
 
 		return hotelInventoryService.fetchRoomTypes(hotelId);
     }
@@ -81,7 +79,7 @@ public class HotelInventoryController {
 	@Operation(summary = "Get a List of Floors - should return floor number, all rooms and respective details belonging to that floor", 
 	responses = {@ApiResponse(responseCode = "200", description = "Get a List of Rooms - should return Room Number, Room Type, Floor", content = @Content(schema = @Schema(implementation = String.class))),
 				@ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))})
-    public Flux<List<FloorModel>> fetchFloors(@RequestParam(required = true) String hotelId) {
+    public Flux<FloorModel> fetchFloors(@RequestParam(required = true) String hotelId) {
 
         return hotelInventoryService.fetchFloors(hotelId);
 

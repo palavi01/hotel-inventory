@@ -17,11 +17,11 @@ public class CommonModel {
 	private String createdDate;
 	
 	@JsonProperty("createdBy")
-	private Long createdBy;
+	private String createdBy;
 	
 	@JsonProperty("modifiedDate")
 	private String modifiedDate;
 	
 	@JsonProperty("modifiedBy")
-	private Long modifiedBy;
+	private String modifiedBy;
 }
