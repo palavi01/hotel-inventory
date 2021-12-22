@@ -63,7 +63,7 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	public Flux<RoomModel> fetchRooms(String hotelId) {
 		
 		Flux<RoomEntity> roomEntities = roomDao.findByStatusAndHotelId(Status.ACTIVE.ordinal(), hotelId);
-		return roomEntities.map(re -> util.transform(re, RoomModel.class));
+		return roomEntities.map(re -> util.transform(re, RoomModel.class)).log();
 	}
 
 	@Override

@@ -1,38 +1,72 @@
 package com.cts.hotel.exception;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;
-import org.springframework.core.io.buffer.DataBufferFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
-import org.springframework.web.server.ServerWebExchange;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.support.WebExchangeBindException;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.server.ResponseStatusException;
 
-import reactor.core.publisher.Mono;
+import com.cts.hotel.helper.Util;
+import com.cts.hotel.model.ErrorModel;
 
-@Component
-public class GlobalExceptionHandler implements ErrorWebExceptionHandler {
-	
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
 	@Value("${404.error.message}")
 	private String errorMessage;
+
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@org.springframework.web.bind.annotation.ExceptionHandler(WebExchangeBindException.class)
+    public List<ErrorModel> handleValidationExceptions(WebExchangeBindException ex) {
+
+        List<ErrorModel> errorModels = new ArrayList<ErrorModel>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            ErrorModel errorModel = new ErrorModel();
+            errorModel.setErrorMessage(error.getDefaultMessage());
+            errorModel.setFieldName(((FieldError) error).getField());
+            errorModels.add(errorModel);
+        });
+        return errorModels;
+    }
 	
-	@Override
-	public Mono<Void> handle(ServerWebExchange exchange, Throwable ex) {
+	@org.springframework.web.bind.annotation.ExceptionHandler(DataNotFoundException.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public Object dataNotFoundExceptions(DataNotFoundException ex) {
 
-		DataBufferFactory bufferFactory = exchange.getResponse().bufferFactory();
-		var errorMessage = bufferFactory.wrap(ex.getMessage().split(",")[0].getBytes());
-		if (ex instanceof HotelNotFoundException) {
-			exchange.getResponse().setStatusCode(HttpStatus.NOT_FOUND);
-			return exchange.getResponse().writeWith(Mono.just(errorMessage));
-		} else if (ex instanceof DataNotFoundException) {
-			exchange.getResponse().setStatusCode(HttpStatus.BAD_REQUEST);
-			return exchange.getResponse().writeWith(Mono.just(errorMessage));
-		} /*
-			 * else if (ex instanceof PostNotFoundException) {
-			 * exchange.getResponse().setStatusCode(HttpStatus.NOT_FOUND); return
-			 * exchange.getResponse().writeWith(Mono.just(errorMessage)); }
-			 */
+		Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+        body.put("message", ex.getLocalizedMessage());
 
-		exchange.getResponse().setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
-		return exchange.getResponse().writeWith(Mono.just(errorMessage));
+        return body;
 	}
+	
+	@org.springframework.web.bind.annotation.ExceptionHandler(ResponseStatusException.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public Object responseStatusException(ResponseStatusException ex) {
+
+		Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+        body.put("message", ex.getLocalizedMessage());
+
+        return body;
+	}
+	
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @org.springframework.web.bind.annotation.ExceptionHandler(Exception.class)
+    public Object handleAnyException(Exception ex, WebRequest request) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+        body.put("message", ex.getLocalizedMessage());
+
+        return body;
+    }
 }

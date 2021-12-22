@@ -1,10 +1,12 @@
 package com.cts.hotel.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
+@JsonInclude(Include.NON_NULL)
 public class FloorModel {
 
 	private String floorId;
