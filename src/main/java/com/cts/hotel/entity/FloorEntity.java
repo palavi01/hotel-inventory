@@ -1,7 +1,6 @@
 package com.cts.hotel.entity;
 
-import javax.persistence.Id;
-
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -12,14 +11,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "room")
-public class FloorEntity extends CommonEntity {
+public class FloorEntity {
 
-	private static final long serialVersionUID = 9199576141597336829L;
-
-	@Id 
+	@Id
 	private String floorId;
 
 	private String floorName;
-	
+
 	private String hotelId;
+
+	private Integer status;
+
+	private String createdDate;
+
+	private String createdBy;
+
+	private String modifiedDate;
+
+	private String modifiedBy;
 }

@@ -1,12 +1,12 @@
 package com.cts.hotel.dao;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
 import com.cts.hotel.entity.RoomEntity;
 
 import reactor.core.publisher.Flux;
 
-public interface RoomDao extends JpaRepository<RoomEntity, Long> {
+public interface RoomDao extends ReactiveMongoRepository<RoomEntity, String> {
 
-	Flux<RoomEntity> findByStatusAndHotelId(int status, long hotelId);
+	Flux<RoomEntity> findByStatusAndHotelId(int status, String hotelId);
 }
