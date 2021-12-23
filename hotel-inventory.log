@@ -5711,3 +5711,251 @@ com.cts.hotel.controller.ValueInsertController#addRoomTypes() mapped.
 2021-12-23 01:28:03.606  INFO 22428 --- [reactor-http-nio-3] reactor.Mono.UsingWhen.2                 : request(unbounded)
 2021-12-23 01:28:03.628  INFO 22428 --- [nioEventLoopGroup-3-3] reactor.Mono.UsingWhen.2                 : onNext(FloorEntity(floorId=1, floorName=1st Floor, hotelId=1, status=1, createdDate=23-12-2021 01:28:03, createdBy=1, modifiedDate=null, modifiedBy=null))
 2021-12-23 01:28:03.630  INFO 22428 --- [nioEventLoopGroup-3-3] reactor.Mono.UsingWhen.2                 : onComplete()
+2021-12-23 09:56:15.975  INFO 15072 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 14.0.1 on Avirup with PID 15072 (C:\AAI Workspace\hotel\bin\main started by aviru in C:\AAI Workspace\hotel)
+2021-12-23 09:56:15.976  INFO 15072 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-23 09:56:16.011  INFO 15072 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-23 09:56:16.011  INFO 15072 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-23 09:56:16.530  INFO 15072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-23 09:56:16.663  INFO 15072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 130 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-23 09:56:17.124  INFO 15072 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-23 09:56:17.293  INFO 15072 --- [cluster-ClusterId{value='61c3fa69f80dc51a5498cb40', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:15}] to localhost:27017
+2021-12-23 09:56:17.293  INFO 15072 --- [cluster-rtt-ClusterId{value='61c3fa69f80dc51a5498cb40', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:14}] to localhost:27017
+2021-12-23 09:56:17.295  INFO 15072 --- [cluster-ClusterId{value='61c3fa69f80dc51a5498cb40', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=59923600}
+2021-12-23 09:56:17.320  INFO 15072 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-23 09:56:18.104  INFO 15072 --- [restartedMain] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group-id-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group-id
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 6000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+2021-12-23 09:56:18.268  WARN 15072 --- [restartedMain] o.a.k.clients.consumer.ConsumerConfig    : The configuration 'spring.json.trusted.packages' was supplied but isn't a known config.
+2021-12-23 09:56:18.291  INFO 15072 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.0.0
+2021-12-23 09:56:18.291  INFO 15072 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8cb0a5e9d3441962
+2021-12-23 09:56:18.291  INFO 15072 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1640233578269
+2021-12-23 09:56:18.293  INFO 15072 --- [restartedMain] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-group-id-1, groupId=group-id] Subscribed to topic(s): update_room
+2021-12-23 09:56:18.297  INFO 15072 --- [restartedMain] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group-id-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group-id
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 6000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+2021-12-23 09:56:18.303  WARN 15072 --- [restartedMain] o.a.k.clients.consumer.ConsumerConfig    : The configuration 'spring.json.trusted.packages' was supplied but isn't a known config.
+2021-12-23 09:56:18.303  INFO 15072 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.0.0
+2021-12-23 09:56:18.303  INFO 15072 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8cb0a5e9d3441962
+2021-12-23 09:56:18.303  INFO 15072 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1640233578303
+2021-12-23 09:56:18.303  INFO 15072 --- [restartedMain] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-group-id-2, groupId=group-id] Subscribed to topic(s): add_room
+2021-12-23 09:56:18.332  INFO 15072 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-23 09:56:18.339  INFO 15072 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 2.614 seconds (JVM running for 3.142)
+2021-12-23 09:56:18.658  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-group-id-2, groupId=group-id] Cluster ID: Cu2b0seKQwqaS2hxSzHgFg
+2021-12-23 09:56:18.658  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-group-id-1, groupId=group-id] Cluster ID: Cu2b0seKQwqaS2hxSzHgFg
+2021-12-23 09:56:18.660  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Discovered group coordinator localhost:29092 (id: 2147483646 rack: null)
+2021-12-23 09:56:18.660  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Discovered group coordinator localhost:29092 (id: 2147483646 rack: null)
+2021-12-23 09:56:18.662  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] (Re-)joining group
+2021-12-23 09:56:18.663  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] (Re-)joining group
+2021-12-23 09:56:18.692  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Request joining group due to: need to re-join with the given member-id
+2021-12-23 09:56:18.692  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Request joining group due to: need to re-join with the given member-id
+2021-12-23 09:56:18.693  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] (Re-)joining group
+2021-12-23 09:56:18.693  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] (Re-)joining group
+2021-12-23 09:56:21.708  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Successfully joined group with generation Generation{generationId=117, memberId='consumer-group-id-1-ee217a7f-6301-448b-bbcf-5ff14f916070', protocol='range'}
+2021-12-23 09:56:21.711  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Successfully joined group with generation Generation{generationId=117, memberId='consumer-group-id-2-e7aba9d5-f93e-4672-9d3a-fcae8ccb944f', protocol='range'}
+2021-12-23 09:56:21.721  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Finished assignment for group at generation 117: {consumer-group-id-1-ee217a7f-6301-448b-bbcf-5ff14f916070=Assignment(partitions=[update_room-0]), consumer-group-id-2-e7aba9d5-f93e-4672-9d3a-fcae8ccb944f=Assignment(partitions=[add_room-0])}
+2021-12-23 09:56:21.766  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Successfully synced group in generation Generation{generationId=117, memberId='consumer-group-id-2-e7aba9d5-f93e-4672-9d3a-fcae8ccb944f', protocol='range'}
+2021-12-23 09:56:21.766  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Successfully synced group in generation Generation{generationId=117, memberId='consumer-group-id-1-ee217a7f-6301-448b-bbcf-5ff14f916070', protocol='range'}
+2021-12-23 09:56:21.766  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Notifying assignor about the new Assignment(partitions=[update_room-0])
+2021-12-23 09:56:21.766  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Notifying assignor about the new Assignment(partitions=[add_room-0])
+2021-12-23 09:56:21.768  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Adding newly assigned partitions: update_room-0
+2021-12-23 09:56:21.768  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Adding newly assigned partitions: add_room-0
+2021-12-23 09:56:21.798  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Setting offset for partition update_room-0 to the committed offset FetchPosition{offset=2, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:29092 (id: 1 rack: null)], epoch=0}}
+2021-12-23 09:56:21.798  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Setting offset for partition add_room-0 to the committed offset FetchPosition{offset=16, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:29092 (id: 1 rack: null)], epoch=0}}
+2021-12-23 09:56:21.799  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group-id: partitions assigned: [add_room-0]
+2021-12-23 09:56:21.799  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group-id: partitions assigned: [update_room-0]
+2021-12-23 09:56:40.244  INFO 15072 --- [reactor-http-nio-3] reactor.Mono.UsingWhen.1                 : onSubscribe(MonoUsingWhen.MonoUsingWhenSubscriber)
+2021-12-23 09:56:40.245  INFO 15072 --- [reactor-http-nio-3] reactor.Mono.UsingWhen.1                 : request(unbounded)
+2021-12-23 09:56:40.389  INFO 15072 --- [nioEventLoopGroup-3-3] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:16}] to localhost:27017
+2021-12-23 09:56:40.422  INFO 15072 --- [nioEventLoopGroup-3-3] reactor.Mono.UsingWhen.1                 : onNext(RoomEntity(roomId=1, roomNumber=101, hotelId=1, roomType=AC, floorName=1st Floor, status=1, createdDate=23-12-2021 09:56:40, createdBy=1, modifiedDate=null, modifiedBy=null))
+2021-12-23 09:56:40.427  INFO 15072 --- [nioEventLoopGroup-3-3] reactor.Mono.UsingWhen.1                 : onComplete()
+2021-12-23 09:56:49.172  INFO 15072 --- [reactor-http-nio-3] reactor.Flux.Map.2                       : onSubscribe(FluxMap.MapSubscriber)
+2021-12-23 09:56:49.173  INFO 15072 --- [reactor-http-nio-3] reactor.Flux.Map.2                       : request(unbounded)
+2021-12-23 09:56:49.208  INFO 15072 --- [nioEventLoopGroup-3-3] reactor.Flux.Map.2                       : onNext(RoomModel(roomId=1, roomNumber=101, hotelId=1, roomType=AC, floorName=1st Floor, status=1, createdDate=23-12-2021 09:56:40, createdBy=1, modifiedDate=null, modifiedBy=null))
+2021-12-23 09:56:49.208  INFO 15072 --- [nioEventLoopGroup-3-3] reactor.Flux.Map.2                       : onComplete()
+2021-12-23 09:57:08.432  INFO 15072 --- [reactor-http-nio-3] reactor.Mono.UsingWhen.3                 : onSubscribe(MonoUsingWhen.MonoUsingWhenSubscriber)
+2021-12-23 09:57:08.432  INFO 15072 --- [reactor-http-nio-3] reactor.Mono.UsingWhen.3                 : request(unbounded)
+2021-12-23 09:57:08.454  INFO 15072 --- [nioEventLoopGroup-3-3] reactor.Mono.UsingWhen.3                 : onNext(RoomTypeEntity(roomTypeId=1, roomTypeName=Delux, description=AC, hotelId=1, status=1, createdDate=23-12-2021 09:57:08, createdBy=1, modifiedDate=null, modifiedBy=null))
+2021-12-23 09:57:08.455  INFO 15072 --- [nioEventLoopGroup-3-3] reactor.Mono.UsingWhen.3                 : onComplete()
+2021-12-23 09:57:12.543  INFO 15072 --- [reactor-http-nio-3] reactor.Mono.UsingWhen.4                 : onSubscribe(MonoUsingWhen.MonoUsingWhenSubscriber)
+2021-12-23 09:57:12.544  INFO 15072 --- [reactor-http-nio-3] reactor.Mono.UsingWhen.4                 : request(unbounded)
+2021-12-23 09:57:12.560  INFO 15072 --- [nioEventLoopGroup-3-3] reactor.Mono.UsingWhen.4                 : onNext(FloorEntity(floorId=1, floorName=1st Floor, hotelId=1, status=1, createdDate=23-12-2021 09:57:12, createdBy=1, modifiedDate=null, modifiedBy=null))
+2021-12-23 09:57:12.562  INFO 15072 --- [nioEventLoopGroup-3-3] reactor.Mono.UsingWhen.4                 : onComplete()
+2021-12-23 09:58:13.205  INFO 15072 --- [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-12-23 09:58:13.211  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Revoke previously assigned partitions update_room-0
+2021-12-23 09:58:13.211  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Revoke previously assigned partitions add_room-0
+2021-12-23 09:58:13.211  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group-id: partitions revoked: [update_room-0]
+2021-12-23 09:58:13.211  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group-id: partitions revoked: [add_room-0]
+2021-12-23 09:58:13.212  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Member consumer-group-id-2-e7aba9d5-f93e-4672-9d3a-fcae8ccb944f sending LeaveGroup request to coordinator localhost:29092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2021-12-23 09:58:13.212  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Member consumer-group-id-1-ee217a7f-6301-448b-bbcf-5ff14f916070 sending LeaveGroup request to coordinator localhost:29092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2021-12-23 09:58:13.212  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Resetting generation due to: consumer pro-actively leaving the group
+2021-12-23 09:58:13.212  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Request joining group due to: consumer pro-actively leaving the group
+2021-12-23 09:58:13.212  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Resetting generation due to: consumer pro-actively leaving the group
+2021-12-23 09:58:13.212  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-group-id-2, groupId=group-id] Unsubscribed all topics or patterns and assigned partitions
+2021-12-23 09:58:13.212  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Request joining group due to: consumer pro-actively leaving the group
+2021-12-23 09:58:13.213  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-group-id-1, groupId=group-id] Unsubscribed all topics or patterns and assigned partitions
+2021-12-23 09:58:13.213  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Resetting generation due to: consumer pro-actively leaving the group
+2021-12-23 09:58:13.213  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Resetting generation due to: consumer pro-actively leaving the group
+2021-12-23 09:58:13.213  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-2, groupId=group-id] Request joining group due to: consumer pro-actively leaving the group
+2021-12-23 09:58:13.213  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-id-1, groupId=group-id] Request joining group due to: consumer pro-actively leaving the group
+2021-12-23 09:58:13.222  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2021-12-23 09:58:13.223  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2021-12-23 09:58:13.223  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2021-12-23 09:58:13.229  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2021-12-23 09:58:13.229  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2021-12-23 09:58:13.229  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2021-12-23 09:58:13.236  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-group-id-1 unregistered
+2021-12-23 09:58:13.236  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-group-id-2 unregistered
+2021-12-23 09:58:13.236  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group-id: Consumer stopped
+2021-12-23 09:58:13.236  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group-id: Consumer stopped
