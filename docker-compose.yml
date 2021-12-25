@@ -1,0 +1,109 @@
+version: '3.9'
+services:
+
+  zookeeper:
+    image: "confluentinc/cp-zookeeper:latest"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    networks:
+      - hotel 
+  
+  kafka:
+    image: "confluentinc/cp-kafka:latest"
+    depends_on:
+      - zookeeper
+    ports:
+      - "29092:29092"
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_CREATE_TOPICS: "add_room"
+      KAFKA_CREATE_TOPICS: "update_room"
+    networks:
+      - hotel 
+      
+  rabbitmq:
+    image: "rabbitmq:latest"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    restart: always
+    networks:
+      - hotel
+      
+  zipkin-server:
+    image: "openzipkin/zipkin"
+    container_name: zipkin
+    environment:
+      STORAGE_TYPE: mem
+      RABBIT_URI: amqp://guest:guest@rabbitmq:5672
+    ports:
+      - "9411:9411"
+    restart: always
+    depends_on:
+      - rabbitmq
+    networks:
+      - hotel
+      
+  redis:
+    image: "redis:latest"
+    ports:
+      - "6379:6379"
+    restart: always
+    environment:
+      - REDIS_REPLICATION_MODE=master
+    networks:
+      - hotel 
+      
+  mysql:
+    image: "mysql:8.0.25"
+    ports:
+      - "4306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: avirup
+      MYSQL_PASSWORD: avirup
+      MYSQL_DATABASE: hotel_user
+    volumes: 
+      - "./init:/docker-entrypoint-initdb.d"
+    networks:
+      - hotel
+      
+  adminer:
+    image: "adminer"
+    restart: always
+    ports:
+      - "8080:8080"   
+    networks:
+      - hotel
+  
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+      ME_CONFIG_MONGODB_URL: mongodb://admin:admin@mongo:27017/
+      
+# Networks to be created to facilitate communication between containers
+networks:
+  hotel:
