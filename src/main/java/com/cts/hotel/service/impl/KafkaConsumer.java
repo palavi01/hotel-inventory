@@ -26,17 +26,17 @@ public class KafkaConsumer {
 	private String notFound;
 	
 	@Autowired
-	private KafkaReceiver<String, RoomModel> receiver;
+	private KafkaReceiver<String, String> receiver;
 	
 	public void addRoom(RoomModel roomModel) {
 
 		System.out.println("In Add Room Method");
-		Flux<ReceiverRecord<String, RoomModel>> inboundFlux = receiver.receive();
+		Flux<ReceiverRecord<String, String>> inboundFlux = receiver.receive();
         inboundFlux.subscribe(r -> {
         	System.out.println("Received message: {}"+ r.value());
-        	RoomEntity roomEntity = util.transform(r.value(), RoomEntity.class);
-    		System.err.println("roomEntity ==>> "+roomEntity);
-    		roomDao.save(roomEntity).log();
+        	//RoomEntity roomEntity = util.transform(r.value(), RoomEntity.class);
+    		//System.err.println("roomEntity ==>> "+roomEntity);
+    		//roomDao.save(roomEntity).log();
             r.receiverOffset()
               .acknowledge();
         });

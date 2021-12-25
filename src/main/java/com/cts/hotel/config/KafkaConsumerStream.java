@@ -10,9 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.cts.hotel.model.RoomModel;
-import com.fasterxml.jackson.databind.JsonSerializer;
-
 import reactor.kafka.receiver.KafkaReceiver;
 import reactor.kafka.receiver.ReceiverOptions;
 
@@ -32,18 +29,18 @@ public class KafkaConsumerStream {
 	private String updateRoomTopic;
 
 	@Bean
-	public KafkaReceiver<String, RoomModel> consumerFactory() throws InterruptedException {
+	public KafkaReceiver<String, String> consumerFactory() throws InterruptedException {
 
 		Map<String, Object> consumerProps = new HashMap<>();
 		consumerProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaURL + ":" + kafkaPort);
 		consumerProps.put(ConsumerConfig.CLIENT_ID_CONFIG, "hotel-producer");
 		consumerProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringSerializer.class);
-		consumerProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+		consumerProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		consumerProps.put(ConsumerConfig.GROUP_ID_CONFIG, "my-group");
 		consumerProps.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-		ReceiverOptions<String, RoomModel> receiverOptions = ReceiverOptions.create(consumerProps);
+		ReceiverOptions<String, String> receiverOptions = ReceiverOptions.create(consumerProps);
 		receiverOptions.subscription(Collections.singleton(addRoomTopic));
-		KafkaReceiver<String, RoomModel> receiver = KafkaReceiver.create(receiverOptions);
+		KafkaReceiver<String, String> receiver = KafkaReceiver.create(receiverOptions);
 
 		return receiver;
 	}

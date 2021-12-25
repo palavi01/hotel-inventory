@@ -17,6 +17,8 @@ import com.cts.hotel.model.FloorModel;
 import com.cts.hotel.model.RoomModel;
 import com.cts.hotel.model.RoomTypeModel;
 import com.cts.hotel.service.HotelInventoryService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -45,7 +47,7 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
     private String updateRoomTopic;
 	
 	@Autowired
-	private KafkaSender<String, RoomModel> sender;
+	private KafkaSender<String, String> sender;
 	
 	@Value("${not.found}")
 	private String notFound;
@@ -57,11 +59,16 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 		roomModel.setCreatedBy("1");
 		roomModel.setCreatedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
 		roomModel.setStatus(Status.ACTIVE.ordinal());
-		Flux<SenderRecord<String , RoomModel, String>> outboundFlux = Flux.range(1, count)
-		          .map(i -> SenderRecord.create(new ProducerRecord<>(addRoomTopic, roomModel), roomModel.getCreatedDate()));
-		sender.send(outboundFlux).subscribe();
-		        
-		sender.close();
+		try {
+			String roomModelString = new ObjectMapper().writeValueAsString(roomModel);
+			Flux<SenderRecord<String , String, String>> outboundFlux = Flux.range(1, count)
+			          .map(i -> SenderRecord.create(new ProducerRecord<>(addRoomTopic, roomModelString), roomModel.getCreatedDate()));
+			sender.send(outboundFlux).subscribe();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return null;
 				
 	}
