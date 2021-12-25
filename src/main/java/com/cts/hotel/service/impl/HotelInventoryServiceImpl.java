@@ -1,8 +1,8 @@
 package com.cts.hotel.service.impl;
 
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.cts.hotel.dao.FloorDao;
@@ -20,6 +20,8 @@ import com.cts.hotel.service.HotelInventoryService;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.kafka.sender.KafkaSender;
+import reactor.kafka.sender.SenderRecord;
 
 @Service
 public class HotelInventoryServiceImpl implements HotelInventoryService {
@@ -43,7 +45,7 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
     private String updateRoomTopic;
 	
 	@Autowired
-	private KafkaTemplate<String, RoomModel> kafkaTemplate;
+	private KafkaSender<String, RoomModel> sender;
 	
 	@Value("${not.found}")
 	private String notFound;
@@ -51,14 +53,17 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	@Override
 	public Mono<RoomModel> createRoom(RoomModel roomModel) {
 		
-		//kafkaTemplate.send(addRoomTopic, roomModel);
+		int count = 1;
 		roomModel.setCreatedBy("1");
 		roomModel.setCreatedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
 		roomModel.setStatus(Status.ACTIVE.ordinal());
-		RoomEntity roomEntity = util.transform(roomModel, RoomEntity.class);
-		System.err.println("roomEntity ==>> "+roomEntity);
-		return roomDao.save(roomEntity).log().map(re -> util.transform(re, RoomModel.class));
-		//return Mono.just(roomModel);
+		Flux<SenderRecord<String , RoomModel, String>> outboundFlux = Flux.range(1, count)
+		          .map(i -> SenderRecord.create(new ProducerRecord<>(addRoomTopic, roomModel), roomModel.getCreatedDate()));
+		sender.send(outboundFlux).subscribe();
+		        
+		sender.close();
+		return null;
+				
 	}
 
 	@Override
