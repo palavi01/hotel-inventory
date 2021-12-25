@@ -5959,3 +5959,51 @@ com.cts.hotel.controller.ValueInsertController#addRoomTypes() mapped.
 2021-12-23 09:58:13.236  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-group-id-2 unregistered
 2021-12-23 09:58:13.236  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group-id: Consumer stopped
 2021-12-23 09:58:13.236  INFO 15072 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group-id: Consumer stopped
+2021-12-25 23:58:12.547  INFO 18088 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 18088 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-25 23:58:12.607  INFO 18088 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-25 23:58:13.061  INFO 18088 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-25 23:58:13.061  INFO 18088 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-25 23:58:19.123  INFO 18088 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-25 23:58:19.343  INFO 18088 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 214 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-25 23:58:21.431  INFO 18088 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-25 23:58:21.682  INFO 18088 --- [cluster-ClusterId{value='61c762c52917e801ff88529f', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.connection.netty.NettyStream$OpenChannelFutureListener.operationComplete(NettyStream.java:520) ~[mongodb-driver-core-4.4.0.jar:na]
+	at com.mongodb.connection.netty.NettyStream$OpenChannelFutureListener.operationComplete(NettyStream.java:488) ~[mongodb-driver-core-4.4.0.jar:na]
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:571) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:550) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:609) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:117) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:707) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/[0:0:0:0:0:0:0:1]:27017
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:707) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.70.Final.jar:4.1.70.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2021-12-25 23:58:21.805  INFO 18088 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-25 23:58:23.455  INFO 18088 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-25 23:58:23.464  INFO 18088 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 13.508 seconds (JVM running for 21.937)
