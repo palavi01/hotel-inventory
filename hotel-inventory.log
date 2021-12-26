@@ -972,3 +972,666 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
 2021-12-26 00:35:32.917  INFO 17724 --- [RMI TCP Connection(7)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-12-26 20:53:15.310  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 10572 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 20:53:15.336  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 20:53:15.842  INFO 10572 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-26 20:53:15.843  INFO 10572 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-26 20:53:19.803  INFO 10572 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 20:53:20.616  INFO 10572 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 803 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 20:53:22.646  INFO 10572 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 20:53:26.092  INFO 10572 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 20:53:28.689  INFO 10572 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 20:53:28.718  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 14.567 seconds (JVM running for 22.981)
+2021-12-26 20:53:29.570  INFO 10572 --- [cluster-rtt-ClusterId{value='61c888ea4c492c4dd81f392e', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:2}] to localhost:27017
+2021-12-26 20:53:29.570  INFO 10572 --- [cluster-ClusterId{value='61c888ea4c492c4dd81f392e', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:3}] to localhost:27017
+2021-12-26 20:53:29.572  INFO 10572 --- [cluster-ClusterId{value='61c888ea4c492c4dd81f392e', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6433100900}
+2021-12-26 20:54:14.374  INFO 10572 --- [reactor-http-nio-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 974 ms
+2021-12-26 20:55:02.095  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 10572 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 20:55:02.095  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 20:55:02.307  INFO 10572 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 20:55:02.320  INFO 10572 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 20:55:02.445  INFO 10572 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 20:55:02.466  INFO 10572 --- [cluster-rtt-ClusterId{value='61c8894e4c492c4dd81f392f', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:4}] to localhost:27017
+2021-12-26 20:55:02.489  INFO 10572 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 20:55:02.506  INFO 10572 --- [cluster-ClusterId{value='61c8894e4c492c4dd81f392f', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:5}] to localhost:27017
+2021-12-26 20:55:02.506  INFO 10572 --- [cluster-ClusterId{value='61c8894e4c492c4dd81f392f', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=53921000}
+2021-12-26 20:55:03.068  INFO 10572 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 20:55:03.077  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 1.014 seconds (JVM running for 117.339)
+2021-12-26 20:55:03.081  INFO 10572 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 20:55:11.829  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 10572 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 20:55:11.830  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 20:55:12.124  INFO 10572 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 20:55:12.161  INFO 10572 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 20:55:12.285  INFO 10572 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 20:55:12.303  INFO 10572 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 20:55:12.348  INFO 10572 --- [cluster-ClusterId{value='61c889584c492c4dd81f3930', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:5, serverValue:6}] to localhost:27017
+2021-12-26 20:55:12.348  INFO 10572 --- [cluster-ClusterId{value='61c889584c492c4dd81f3930', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=59530300}
+2021-12-26 20:55:12.356  INFO 10572 --- [cluster-rtt-ClusterId{value='61c889584c492c4dd81f3930', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:6, serverValue:7}] to localhost:27017
+2021-12-26 20:55:12.642  INFO 10572 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 20:55:12.651  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 0.852 seconds (JVM running for 126.913)
+2021-12-26 20:55:12.654  INFO 10572 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 20:55:41.962  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 10572 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 20:55:41.962  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 20:55:42.133  INFO 10572 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 20:55:42.146  INFO 10572 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 20:55:42.233  INFO 10572 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 20:55:42.256  INFO 10572 --- [cluster-ClusterId{value='61c889764c492c4dd81f3931', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:7, serverValue:8}] to localhost:27017
+2021-12-26 20:55:42.256  INFO 10572 --- [cluster-ClusterId{value='61c889764c492c4dd81f3931', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=19299800}
+2021-12-26 20:55:42.261  INFO 10572 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 20:55:42.267  INFO 10572 --- [cluster-rtt-ClusterId{value='61c889764c492c4dd81f3931', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:8, serverValue:9}] to localhost:27017
+2021-12-26 20:55:42.557  INFO 10572 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 20:55:42.562  INFO 10572 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 0.625 seconds (JVM running for 156.825)
+2021-12-26 20:55:42.563  INFO 10572 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 20:55:58.072  INFO 10572 --- [reactor-http-nio-2] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 64 ms
+2021-12-26 20:56:34.981  INFO 10572 --- [reactor-http-nio-4] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:29092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = hotel-producer
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2021-12-26 20:56:35.236  INFO 10572 --- [reactor-http-nio-4] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.0.0
+2021-12-26 20:56:35.237  INFO 10572 --- [reactor-http-nio-4] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8cb0a5e9d3441962
+2021-12-26 20:56:35.237  INFO 10572 --- [reactor-http-nio-4] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1640532395227
+2021-12-26 20:56:35.295  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:35.297  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:35.393  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:35.394  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:35.504  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:35.504  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:35.731  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:35.731  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:36.200  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:36.201  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:37.188  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:37.190  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:38.256  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:38.257  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:39.102  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:39.103  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:40.222  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:40.223  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:41.204  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:41.205  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:42.175  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:42.175  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:43.097  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:43.097  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:44.355  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:44.356  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:45.263  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:45.264  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:46.435  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:46.436  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:47.476  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:47.477  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:48.590  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:48.592  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:49.600  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:49.601  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:50.662  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:50.663  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:51.721  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:51.722  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:52.628  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:52.629  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:53.791  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:53.791  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:54.900  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:54.901  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:55.808  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:55.808  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:56.768  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:56.770  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:57.881  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:57.882  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:58.791  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:58.791  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:56:59.700  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:56:59.700  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:00.760  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:00.761  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:01.771  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:01.771  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:02.833  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:02.834  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:03.944  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:03.945  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:05.004  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:05.005  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:05.966  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:05.966  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:07.128  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:07.128  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:08.190  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:08.191  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:09.202  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:09.204  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:10.162  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:10.162  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:11.020  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:11.020  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:12.077  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:12.078  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:13.188  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:13.189  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:14.246  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:14.246  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:15.256  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:15.257  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:16.416  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:16.417  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:17.275  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:17.275  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:18.135  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:18.136  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:19.096  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:19.097  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:20.007  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:20.007  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:21.217  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:21.218  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:22.431  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:22.431  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:23.339  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:23.340  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:24.452  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:24.453  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:25.461  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:25.461  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:26.420  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:26.420  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:27.380  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:27.381  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:28.438  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:28.439  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:29.498  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:29.498  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:30.508  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:30.508  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:31.620  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:31.620  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:32.679  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:32.679  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:33.539  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:33.539  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:34.450  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:34.450  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:35.305  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:35.305  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:35.308 ERROR 10572 --- [reactor-kafka-sender-437029040] r.k.sender.internals.DefaultKafkaSender  : Sender failed
+
+org.apache.kafka.common.errors.TimeoutException: Topic add_room not present in metadata after 60000 ms.
+
+2021-12-26 20:57:35.339 ERROR 10572 --- [reactor-kafka-sender-437029040] reactor.core.publisher.Operators         : Operator called default onErrorDropped
+
+reactor.core.Exceptions$ErrorCallbackNotImplemented: org.apache.kafka.common.errors.TimeoutException: Topic add_room not present in metadata after 60000 ms.
+Caused by: org.apache.kafka.common.errors.TimeoutException: Topic add_room not present in metadata after 60000 ms.
+
+2021-12-26 20:57:36.478  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:36.478  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:37.339  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:37.340  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:38.450  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:38.450  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:39.608  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:39.608  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:40.771  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:40.771  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:41.692  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:41.692  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:42.669  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:42.670  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:43.658  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:43.659  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:44.701  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:44.702  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:45.872  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2021-12-26 20:57:45.873  WARN 10572 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+2021-12-26 20:57:46.210  INFO 10572 --- [RMI TCP Connection(20)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-12-26 20:57:46.212  INFO 10572 --- [RMI TCP Connection(20)-127.0.0.1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=hotel-producer] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+2021-12-26 20:57:46.221  INFO 10572 --- [RMI TCP Connection(20)-127.0.0.1] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2021-12-26 20:57:46.221  INFO 10572 --- [RMI TCP Connection(20)-127.0.0.1] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2021-12-26 20:57:46.222  INFO 10572 --- [RMI TCP Connection(20)-127.0.0.1] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2021-12-26 20:57:46.222  INFO 10572 --- [RMI TCP Connection(20)-127.0.0.1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for hotel-producer unregistered
+2021-12-26 21:09:19.715  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 5876 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:09:19.737  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:09:19.806  INFO 5876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-26 21:09:19.806  INFO 5876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-26 21:09:20.732  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:09:20.937  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 199 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:09:21.915  INFO 5876 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:09:22.307  INFO 5876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:09:22.387  INFO 5876 --- [cluster-ClusterId{value='61c88ca93c43d209e425f0f3', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:3}] to localhost:27017
+2021-12-26 21:09:22.387  INFO 5876 --- [cluster-rtt-ClusterId{value='61c88ca93c43d209e425f0f3', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:2}] to localhost:27017
+2021-12-26 21:09:22.388  INFO 5876 --- [cluster-ClusterId{value='61c88ca93c43d209e425f0f3', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=203823200}
+2021-12-26 21:09:23.754  INFO 5876 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:09:23.765  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 4.721 seconds (JVM running for 8.094)
+2021-12-26 21:09:49.670  INFO 5876 --- [reactor-http-nio-2] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:29092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = hotel-producer
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2021-12-26 21:09:49.847  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.0.0
+2021-12-26 21:09:49.850  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8cb0a5e9d3441962
+2021-12-26 21:09:49.851  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1640533189843
+2021-12-26 21:09:51.261  WARN 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Error while fetching metadata with correlation id 1 : {add_room=LEADER_NOT_AVAILABLE}
+2021-12-26 21:09:51.264  INFO 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.Metadata        : [Producer clientId=hotel-producer] Cluster ID: AKVYKKrQSYuZDnk7ivWhNg
+2021-12-26 21:09:51.406  WARN 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Error while fetching metadata with correlation id 3 : {add_room=LEADER_NOT_AVAILABLE}
+2021-12-26 21:09:51.527  WARN 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Error while fetching metadata with correlation id 4 : {add_room=LEADER_NOT_AVAILABLE}
+2021-12-26 21:09:51.650  WARN 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Error while fetching metadata with correlation id 5 : {add_room=LEADER_NOT_AVAILABLE}
+2021-12-26 21:09:51.794  WARN 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Error while fetching metadata with correlation id 6 : {add_room=LEADER_NOT_AVAILABLE}
+2021-12-26 21:09:51.923  WARN 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Error while fetching metadata with correlation id 7 : {add_room=LEADER_NOT_AVAILABLE}
+2021-12-26 21:09:52.040  WARN 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Error while fetching metadata with correlation id 8 : {add_room=LEADER_NOT_AVAILABLE}
+2021-12-26 21:09:52.164  WARN 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.NetworkClient   : [Producer clientId=hotel-producer] Error while fetching metadata with correlation id 9 : {add_room=LEADER_NOT_AVAILABLE}
+2021-12-26 21:12:24.005  INFO 5876 --- [Thread-4] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=hotel-producer] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+2021-12-26 21:12:24.009  INFO 5876 --- [Thread-4] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2021-12-26 21:12:24.011  INFO 5876 --- [Thread-4] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2021-12-26 21:12:24.012  INFO 5876 --- [Thread-4] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2021-12-26 21:12:24.012  INFO 5876 --- [Thread-4] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for hotel-producer unregistered
+2021-12-26 21:12:28.348  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 5876 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:12:28.349  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:12:28.895  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:12:28.908  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:12:29.001  INFO 5876 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:12:29.026  INFO 5876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:12:29.136  INFO 5876 --- [cluster-rtt-ClusterId{value='61c88d653c43d209e425f0f4', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:4}] to localhost:27017
+2021-12-26 21:12:29.404  INFO 5876 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:12:29.409  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 1.093 seconds (JVM running for 193.738)
+2021-12-26 21:12:29.412  INFO 5876 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 21:12:29.786  INFO 5876 --- [cluster-ClusterId{value='61c88d653c43d209e425f0f4', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:5}] to localhost:27017
+2021-12-26 21:12:29.786  INFO 5876 --- [cluster-ClusterId{value='61c88d653c43d209e425f0f4', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=777170400}
+2021-12-26 21:12:44.320  INFO 5876 --- [reactor-http-nio-2] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:29092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = hotel-producer
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2021-12-26 21:12:44.326  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.0.0
+2021-12-26 21:12:44.326  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8cb0a5e9d3441962
+2021-12-26 21:12:44.327  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1640533364326
+2021-12-26 21:12:44.371  INFO 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.Metadata        : [Producer clientId=hotel-producer] Cluster ID: AKVYKKrQSYuZDnk7ivWhNg
+2021-12-26 21:18:17.968  INFO 5876 --- [Thread-10] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=hotel-producer] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+2021-12-26 21:18:17.981  INFO 5876 --- [Thread-10] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2021-12-26 21:18:17.982  INFO 5876 --- [Thread-10] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2021-12-26 21:18:17.983  INFO 5876 --- [Thread-10] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2021-12-26 21:18:17.984  INFO 5876 --- [Thread-10] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for hotel-producer unregistered
+2021-12-26 21:18:22.279  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 5876 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:18:22.280  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:18:22.720  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:18:22.735  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:18:22.818  INFO 5876 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:18:22.839  INFO 5876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:18:23.049  INFO 5876 --- [cluster-ClusterId{value='61c88ec63c43d209e425f0f5', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:5, serverValue:7}] to localhost:27017
+2021-12-26 21:18:23.050  INFO 5876 --- [cluster-ClusterId{value='61c88ec63c43d209e425f0f5', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=227279900}
+2021-12-26 21:18:23.061  INFO 5876 --- [cluster-rtt-ClusterId{value='61c88ec63c43d209e425f0f5', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:6, serverValue:6}] to localhost:27017
+2021-12-26 21:18:23.216  INFO 5876 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:18:23.222  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 1.001 seconds (JVM running for 547.551)
+2021-12-26 21:18:23.224  INFO 5876 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 21:18:42.035  INFO 5876 --- [reactor-http-nio-2] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:29092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = hotel-producer
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2021-12-26 21:18:42.042  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.0.0
+2021-12-26 21:18:42.042  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8cb0a5e9d3441962
+2021-12-26 21:18:42.042  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1640533722042
+2021-12-26 21:18:42.110  INFO 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.Metadata        : [Producer clientId=hotel-producer] Cluster ID: AKVYKKrQSYuZDnk7ivWhNg
+2021-12-26 21:19:09.043  INFO 5876 --- [Thread-23] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=hotel-producer] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+2021-12-26 21:19:09.052  INFO 5876 --- [Thread-23] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2021-12-26 21:19:09.053  INFO 5876 --- [Thread-23] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2021-12-26 21:19:09.055  INFO 5876 --- [Thread-23] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2021-12-26 21:19:09.056  INFO 5876 --- [Thread-23] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for hotel-producer unregistered
+2021-12-26 21:19:13.301  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 5876 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:19:13.301  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:19:13.459  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:19:13.470  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:19:13.550  INFO 5876 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:19:13.572  INFO 5876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:19:13.580  INFO 5876 --- [cluster-rtt-ClusterId{value='61c88ef93c43d209e425f0f6', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:8, serverValue:9}] to localhost:27017
+2021-12-26 21:19:13.596  INFO 5876 --- [cluster-ClusterId{value='61c88ef93c43d209e425f0f6', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:7, serverValue:8}] to localhost:27017
+2021-12-26 21:19:13.596  INFO 5876 --- [cluster-ClusterId{value='61c88ef93c43d209e425f0f6', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=42535900}
+2021-12-26 21:19:13.878  INFO 5876 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:19:13.883  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 0.614 seconds (JVM running for 598.212)
+2021-12-26 21:19:13.886  INFO 5876 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 21:19:24.259  INFO 5876 --- [reactor-http-nio-2] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:29092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = hotel-producer
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2021-12-26 21:19:24.263  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.0.0
+2021-12-26 21:19:24.263  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8cb0a5e9d3441962
+2021-12-26 21:19:24.263  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1640533764263
+2021-12-26 21:19:24.275  INFO 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.Metadata        : [Producer clientId=hotel-producer] Cluster ID: AKVYKKrQSYuZDnk7ivWhNg

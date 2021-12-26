@@ -25,68 +25,10 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_CREATE_TOPICS: "add_room"
-      KAFKA_CREATE_TOPICS: "update_room"
+      KAFKA_CREATE_TOPICS: "add_room, update_room"
     networks:
       - hotel 
       
-  rabbitmq:
-    image: "rabbitmq:latest"
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    restart: always
-    networks:
-      - hotel
-      
-  zipkin-server:
-    image: "openzipkin/zipkin"
-    container_name: zipkin
-    environment:
-      STORAGE_TYPE: mem
-      RABBIT_URI: amqp://guest:guest@rabbitmq:5672
-    ports:
-      - "9411:9411"
-    restart: always
-    depends_on:
-      - rabbitmq
-    networks:
-      - hotel
-      
-  redis:
-    image: "redis:latest"
-    ports:
-      - "6379:6379"
-    restart: always
-    environment:
-      - REDIS_REPLICATION_MODE=master
-    networks:
-      - hotel 
-      
-  mysql:
-    image: "mysql:8.0.25"
-    ports:
-      - "4306:3306"
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: avirup
-      MYSQL_PASSWORD: avirup
-      MYSQL_DATABASE: hotel_user
-    volumes: 
-      - "./init:/docker-entrypoint-initdb.d"
-    networks:
-      - hotel
-      
-  adminer:
-    image: "adminer"
-    restart: always
-    ports:
-      - "8080:8080"   
-    networks:
-      - hotel
-  
   mongo:
     image: mongo
     restart: always
@@ -101,6 +43,8 @@ services:
   mongo-express:
     image: mongo-express
     restart: always
+    depends_on:
+      - mongo
     ports:
       - 8081:8081
     environment:

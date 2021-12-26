@@ -41,7 +41,7 @@ public class KafkaConsumerStream {
 		ReceiverOptions<String, String> receiverOptions = ReceiverOptions.create(consumerProps);
 		receiverOptions.subscription(Collections.singleton(addRoomTopic));
 		KafkaReceiver<String, String> receiver = KafkaReceiver.create(receiverOptions);
-
+		System.err.println("Coming");
 		return receiver;
 	}
 

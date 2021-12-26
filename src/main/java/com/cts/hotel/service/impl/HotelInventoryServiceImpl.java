@@ -61,11 +61,12 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 		roomModel.setStatus(Status.ACTIVE.ordinal());
 		try {
 			String roomModelString = new ObjectMapper().writeValueAsString(roomModel);
+			System.err.println("roomModelString ==>> " + roomModelString);
 			Flux<SenderRecord<String , String, String>> outboundFlux = Flux.range(1, count)
 			          .map(i -> SenderRecord.create(new ProducerRecord<>(addRoomTopic, roomModelString), roomModel.getCreatedDate()));
 			sender.send(outboundFlux).subscribe();
+			System.err.println("value send to kafka");
 		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

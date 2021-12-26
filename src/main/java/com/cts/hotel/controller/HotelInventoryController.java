@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cts.hotel.model.FloorModel;
-import com.cts.hotel.model.HotelModel;
 import com.cts.hotel.model.RoomModel;
 import com.cts.hotel.model.RoomTypeModel;
 import com.cts.hotel.service.HotelInventoryService;
@@ -40,7 +39,7 @@ public class HotelInventoryController {
 	@Operation(summary = "Adding Rooms", 
 	 			responses = {@ApiResponse(responseCode = "201", description = "Room Added Successfully", content = @Content(schema = @Schema(implementation = String.class))),
 	 					     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
-	 			requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = HotelModel.class))))
+	 			requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = RoomModel.class))))
     public Mono<RoomModel> createRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
 
         return hotelInventoryService.createRoom(roomModel);
@@ -51,7 +50,7 @@ public class HotelInventoryController {
 	@Operation(summary = "Updating Rooms", 
 				responses = {@ApiResponse(responseCode = "200", description = "Room Updated Successfully", content = @Content(schema = @Schema(implementation = String.class))),
 				     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
-				requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = HotelModel.class))))
+				requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = RoomModel.class))))
     public Mono<RoomModel> updateRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
 
         return hotelInventoryService.updateRoom(roomModel);
