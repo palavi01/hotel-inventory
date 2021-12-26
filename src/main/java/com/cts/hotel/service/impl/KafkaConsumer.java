@@ -2,11 +2,9 @@ package com.cts.hotel.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import com.cts.hotel.dao.RoomDao;
-import com.cts.hotel.entity.RoomEntity;
 import com.cts.hotel.helper.Util;
 import com.cts.hotel.model.RoomModel;
 
@@ -29,7 +27,6 @@ public class KafkaConsumer {
 	@Autowired
 	private KafkaReceiver<String, String> receiver;
 	
-	@EventListener
 	public void addRoom(RoomModel roomModel) {
 
 		System.out.println("In Add Room Method");

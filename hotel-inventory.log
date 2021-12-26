@@ -1801,3 +1801,96 @@ Caused by: org.apache.kafka.common.errors.TimeoutException: Topic add_room not p
 2021-12-26 21:50:20.927  INFO 2452 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8cb0a5e9d3441962
 2021-12-26 21:50:20.927  INFO 2452 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1640535620922
 2021-12-26 21:50:21.680  INFO 2452 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.Metadata        : [Producer clientId=hotel-producer] Cluster ID: AKVYKKrQSYuZDnk7ivWhNg
+2021-12-26 21:54:39.849  INFO 2452 --- [Thread-8] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=hotel-producer] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+2021-12-26 21:54:39.868  INFO 2452 --- [Thread-8] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2021-12-26 21:54:39.869  INFO 2452 --- [Thread-8] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2021-12-26 21:54:39.870  INFO 2452 --- [Thread-8] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2021-12-26 21:54:39.871  INFO 2452 --- [Thread-8] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for hotel-producer unregistered
+2021-12-26 21:54:44.136  INFO 2452 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 2452 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:54:44.137  INFO 2452 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:54:44.376  INFO 2452 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:54:44.391  INFO 2452 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:54:44.488  INFO 2452 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:54:44.500  INFO 2452 --- [cluster-ClusterId{value='61c8974cb165987e3fbd46c1', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:5, serverValue:24}] to localhost:27017
+2021-12-26 21:54:44.500  INFO 2452 --- [cluster-ClusterId{value='61c8974cb165987e3fbd46c1', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7686700}
+2021-12-26 21:54:44.514  INFO 2452 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:54:44.528  INFO 2452 --- [cluster-rtt-ClusterId{value='61c8974cb165987e3fbd46c1', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:6, serverValue:25}] to localhost:27017
+2021-12-26 21:54:44.885  INFO 2452 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:54:44.889  INFO 2452 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 0.782 seconds (JVM running for 301.271)
+2021-12-26 21:54:44.891  INFO 2452 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 21:54:53.874  INFO 2452 --- [reactor-http-nio-2] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:29092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = hotel-producer
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2021-12-26 21:54:53.883  INFO 2452 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.0.0
+2021-12-26 21:54:53.883  INFO 2452 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8cb0a5e9d3441962
+2021-12-26 21:54:53.883  INFO 2452 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1640535893883
+2021-12-26 21:54:53.904  INFO 2452 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.Metadata        : [Producer clientId=hotel-producer] Cluster ID: AKVYKKrQSYuZDnk7ivWhNg
