@@ -38,7 +38,7 @@ public class SampleConsumer {
     private static final Logger log = LoggerFactory.getLogger(SampleConsumer.class.getName());
 
     private static final String BOOTSTRAP_SERVERS = "localhost:29092";
-    private static final String TOPIC = "demo-topic";
+    private static final String TOPIC = "add_room";
 
     private final ReceiverOptions<Integer, String> receiverOptions;
     private final SimpleDateFormat dateFormat;
@@ -47,10 +47,10 @@ public class SampleConsumer {
 
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-        props.put(ConsumerConfig.CLIENT_ID_CONFIG, "sample-consumer");
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "sample-group");
+        props.put(ConsumerConfig.CLIENT_ID_CONFIG, "hotel-producer");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, IntegerDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "my-group");
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         receiverOptions = ReceiverOptions.create(props);
         dateFormat = new SimpleDateFormat("HH:mm:ss:SSS z dd MMM yyyy");

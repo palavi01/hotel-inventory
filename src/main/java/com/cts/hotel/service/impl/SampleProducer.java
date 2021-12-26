@@ -36,7 +36,7 @@ public class SampleProducer {
     private static final Logger log = LoggerFactory.getLogger(SampleProducer.class.getName());
 
     private static final String BOOTSTRAP_SERVERS = "localhost:29092";
-    private static final String TOPIC = "demo-topic";
+    private static final String TOPIC = "add_room";
 
     private final KafkaSender<Integer, String> sender;
     private final SimpleDateFormat dateFormat;
@@ -45,7 +45,7 @@ public class SampleProducer {
 
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-        props.put(ProducerConfig.CLIENT_ID_CONFIG, "sample-producer");
+        props.put(ProducerConfig.CLIENT_ID_CONFIG, "hotel-producer");
         props.put(ProducerConfig.ACKS_CONFIG, "all");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);

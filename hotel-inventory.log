@@ -1635,3 +1635,169 @@ Caused by: org.apache.kafka.common.errors.TimeoutException: Topic add_room not p
 2021-12-26 21:19:24.263  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8cb0a5e9d3441962
 2021-12-26 21:19:24.263  INFO 5876 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1640533764263
 2021-12-26 21:19:24.275  INFO 5876 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.Metadata        : [Producer clientId=hotel-producer] Cluster ID: AKVYKKrQSYuZDnk7ivWhNg
+2021-12-26 21:40:31.521  INFO 5876 --- [Thread-36] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=hotel-producer] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+2021-12-26 21:40:31.525  INFO 5876 --- [Thread-36] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2021-12-26 21:40:31.525  INFO 5876 --- [Thread-36] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2021-12-26 21:40:31.526  INFO 5876 --- [Thread-36] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2021-12-26 21:40:31.527  INFO 5876 --- [Thread-36] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for hotel-producer unregistered
+2021-12-26 21:40:35.835  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 5876 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:40:35.835  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:40:36.902  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:40:36.913  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:40:37.047  INFO 5876 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:40:37.075  INFO 5876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:40:37.155  INFO 5876 --- [cluster-ClusterId{value='61c893fd3c43d209e425f0f7', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:10, serverValue:10}] to localhost:27017
+2021-12-26 21:40:37.155  INFO 5876 --- [cluster-ClusterId{value='61c893fd3c43d209e425f0f7', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=103523900}
+2021-12-26 21:40:37.236  INFO 5876 --- [cluster-rtt-ClusterId{value='61c893fd3c43d209e425f0f7', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:9, serverValue:11}] to localhost:27017
+2021-12-26 21:40:37.442  INFO 5876 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:40:37.448  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 1.677 seconds (JVM running for 1881.777)
+2021-12-26 21:40:37.450  INFO 5876 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 21:43:15.261  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 5876 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:43:15.262  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:43:15.482  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:43:15.498  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:43:15.592  INFO 5876 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:43:15.617  INFO 5876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:43:15.768  INFO 5876 --- [cluster-rtt-ClusterId{value='61c8949b3c43d209e425f0f8', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:12, serverValue:12}] to localhost:27017
+2021-12-26 21:43:16.251  INFO 5876 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:43:16.258  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 1.08 seconds (JVM running for 2040.587)
+2021-12-26 21:43:16.260  INFO 5876 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 21:43:16.469  INFO 5876 --- [cluster-ClusterId{value='61c8949b3c43d209e425f0f8', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:11, serverValue:13}] to localhost:27017
+2021-12-26 21:43:16.469  INFO 5876 --- [cluster-ClusterId{value='61c8949b3c43d209e425f0f8', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=873343900}
+2021-12-26 21:43:54.869  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 5876 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:43:54.869  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:43:55.115  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:43:55.129  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:43:55.212  INFO 5876 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:43:55.233  INFO 5876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:43:55.416  INFO 5876 --- [cluster-ClusterId{value='61c894c33c43d209e425f0f9', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:13, serverValue:15}] to localhost:27017
+2021-12-26 21:43:55.416  INFO 5876 --- [cluster-ClusterId{value='61c894c33c43d209e425f0f9', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=199552400}
+2021-12-26 21:43:55.457  INFO 5876 --- [cluster-rtt-ClusterId{value='61c894c33c43d209e425f0f9', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:14, serverValue:14}] to localhost:27017
+2021-12-26 21:43:55.651  INFO 5876 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:43:55.656  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 0.813 seconds (JVM running for 2079.984)
+2021-12-26 21:43:55.658  INFO 5876 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 21:44:13.711  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 5876 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:44:13.711  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:44:13.883  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:44:13.897  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:44:14.237  INFO 5876 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:44:14.256  INFO 5876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:44:14.329  INFO 5876 --- [cluster-rtt-ClusterId{value='61c894d63c43d209e425f0fa', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:16, serverValue:16}] to localhost:27017
+2021-12-26 21:44:14.657  INFO 5876 --- [cluster-ClusterId{value='61c894d63c43d209e425f0fa', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:15, serverValue:17}] to localhost:27017
+2021-12-26 21:44:14.658  INFO 5876 --- [cluster-ClusterId{value='61c894d63c43d209e425f0fa', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=417509500}
+2021-12-26 21:44:14.885  INFO 5876 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:44:14.888  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 1.203 seconds (JVM running for 2099.218)
+2021-12-26 21:44:14.890  INFO 5876 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 21:44:20.544  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 5876 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:44:20.545  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:44:20.727  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:44:20.737  INFO 5876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:44:20.805  INFO 5876 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:44:20.822  INFO 5876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:44:21.092  INFO 5876 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:44:21.098  INFO 5876 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 0.576 seconds (JVM running for 2105.427)
+2021-12-26 21:44:21.099  INFO 5876 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 21:44:21.498  INFO 5876 --- [cluster-rtt-ClusterId{value='61c894dc3c43d209e425f0fb', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:18, serverValue:18}] to localhost:27017
+2021-12-26 21:44:21.544  INFO 5876 --- [cluster-ClusterId{value='61c894dc3c43d209e425f0fb', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:17, serverValue:19}] to localhost:27017
+2021-12-26 21:44:21.545  INFO 5876 --- [cluster-ClusterId{value='61c894dc3c43d209e425f0fb', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=736379300}
+2021-12-26 21:49:48.227  INFO 2452 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 2452 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:49:48.230  INFO 2452 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:49:48.557  INFO 2452 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-26 21:49:48.557  INFO 2452 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-26 21:49:51.167  INFO 2452 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:49:51.396  INFO 2452 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 217 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:49:53.300  INFO 2452 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:49:54.047  INFO 2452 --- [cluster-ClusterId{value='61c89629b165987e3fbd46bf', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:20}] to localhost:27017
+2021-12-26 21:49:54.047  INFO 2452 --- [cluster-rtt-ClusterId{value='61c89629b165987e3fbd46bf', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:21}] to localhost:27017
+2021-12-26 21:49:54.048  INFO 2452 --- [cluster-ClusterId{value='61c89629b165987e3fbd46bf', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=246226700}
+2021-12-26 21:49:54.193  INFO 2452 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:49:56.740  INFO 2452 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:49:56.752  INFO 2452 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 9.892 seconds (JVM running for 13.133)
+2021-12-26 21:50:03.330  INFO 2452 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Starting HotelInventoryApplication using Java 17.0.1 on Abhideep with PID 2452 (C:\GitHub\hotel-inventory\bin\main started by abhid in C:\GitHub\hotel-inventory)
+2021-12-26 21:50:03.330  INFO 2452 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : No active profile set, falling back to default profiles: default
+2021-12-26 21:50:03.545  INFO 2452 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2021-12-26 21:50:03.563  INFO 2452 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 4 Reactive MongoDB repository interfaces.
+2021-12-26 21:50:03.677  INFO 2452 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-12-26 21:50:03.704  INFO 2452 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-26 21:50:03.712  INFO 2452 --- [cluster-ClusterId{value='61c89633b165987e3fbd46c0', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:22}] to localhost:27017
+2021-12-26 21:50:03.712  INFO 2452 --- [cluster-rtt-ClusterId{value='61c89633b165987e3fbd46c0', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:23}] to localhost:27017
+2021-12-26 21:50:03.712  INFO 2452 --- [cluster-ClusterId{value='61c89633b165987e3fbd46c0', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=30354500}
+2021-12-26 21:50:04.054  INFO 2452 --- [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 7080
+2021-12-26 21:50:04.061  INFO 2452 --- [restartedMain] com.cts.hotel.HotelInventoryApplication  : Started HotelInventoryApplication in 0.759 seconds (JVM running for 20.442)
+2021-12-26 21:50:04.063  INFO 2452 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-26 21:50:20.856  INFO 2452 --- [reactor-http-nio-2] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:29092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = hotel-producer
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2021-12-26 21:50:20.925  INFO 2452 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.0.0
+2021-12-26 21:50:20.927  INFO 2452 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8cb0a5e9d3441962
+2021-12-26 21:50:20.927  INFO 2452 --- [reactor-http-nio-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1640535620922
+2021-12-26 21:50:21.680  INFO 2452 --- [kafka-producer-network-thread | hotel-producer] org.apache.kafka.clients.Metadata        : [Producer clientId=hotel-producer] Cluster ID: AKVYKKrQSYuZDnk7ivWhNg
