@@ -4,15 +4,14 @@ import com.cts.hotel.model.FloorModel;
 import com.cts.hotel.model.RoomModel;
 import com.cts.hotel.model.RoomTypeModel;
 
-import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface HotelInventoryService {
 
-	Disposable createRoom(RoomModel roomModel);
+	void createRoom(RoomModel roomModel);
 
-	Disposable updateRoom(RoomModel roomModel);
+	void updateRoom(RoomModel roomModel);
 
 	Flux<RoomModel> fetchRooms(String hotelId);
 	

@@ -18,7 +18,6 @@ import com.cts.hotel.model.RoomModel;
 import com.cts.hotel.model.RoomTypeModel;
 import com.cts.hotel.service.HotelInventoryService;
 
-import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -53,38 +52,25 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	private String notFound;
 	
 	@Override
-	public Disposable createRoom(RoomModel roomModel) {
+	public void createRoom(RoomModel roomModel) {
 		
 		roomModel.setCreatedBy("1");
 		roomModel.setCreatedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
 		roomModel.setStatus(Status.ACTIVE.ordinal());
 		
-		return addRoomKafkaProducerTemplate.send(addRoomTopic, roomModel)
+		addRoomKafkaProducerTemplate.send(addRoomTopic, roomModel)
         .doOnSuccess(senderResult -> System.out.println("sent ==>> "+ roomModel+ " offset ==>> "+ senderResult.recordMetadata().offset()))
         .subscribe();
 	}
 
 	@Override
-	public Disposable updateRoom(RoomModel roomModel) {
+	public void updateRoom(RoomModel roomModel) {
 		
 		roomModel.setModifiedBy("1");
 		roomModel.setModifiedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
-		return updateRoomKafkaProducerTemplate.send(updateRoomTopic, roomModel)
+		updateRoomKafkaProducerTemplate.send(updateRoomTopic, roomModel)
 		        .doOnSuccess(senderResult -> System.out.println("sent ==>> "+ roomModel+ " offset ==>> "+ senderResult.recordMetadata().offset()))
 		        .subscribe();
-		
-		//kafkaTemplate.send(updateRoomTopic, roomModel);
-//		return roomDao.findById(roomModel.getRoomId()).flatMap(roomEntity -> {
-//			roomEntity.setModifiedBy("1");
-//			roomEntity.setModifiedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
-//			roomEntity.setStatus(roomModel.getStatus());
-//			roomEntity.setRoomNumber(roomModel.getRoomNumber());
-//			roomEntity.setRoomType(roomModel.getRoomType());
-//			roomEntity.setFloorName(roomModel.getFloorName());
-//			roomEntity.setHotelId(roomModel.getHotelId());
-//			System.err.println("roomEntity ==>> "+roomEntity);
-//			return roomDao.save(roomEntity).log().map(re -> util.transform(re, RoomModel.class));
-//		});
 	}
 	
 	@Override
