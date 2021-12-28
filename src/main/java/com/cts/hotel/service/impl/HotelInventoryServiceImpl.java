@@ -51,6 +51,9 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	@Value("${not.found}")
 	private String notFound;
 	
+	@Autowired
+	private KafkaConsumer kafkaConsumer;
+	
 	@Override
 	public void createRoom(RoomModel roomModel) {
 		
@@ -61,6 +64,7 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 		addRoomKafkaProducerTemplate.send(addRoomTopic, roomModel)
         .doOnSuccess(senderResult -> System.out.println("sent ==>> "+ roomModel+ " offset ==>> "+ senderResult.recordMetadata().offset()))
         .subscribe();
+		kafkaConsumer.addRoom().subscribe();
 	}
 
 	@Override
@@ -71,6 +75,7 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 		updateRoomKafkaProducerTemplate.send(updateRoomTopic, roomModel)
 		        .doOnSuccess(senderResult -> System.out.println("sent ==>> "+ roomModel+ " offset ==>> "+ senderResult.recordMetadata().offset()))
 		        .subscribe();
+		kafkaConsumer.updateRoom().subscribe();
 	}
 	
 	@Override
