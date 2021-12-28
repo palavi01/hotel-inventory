@@ -1,8 +1,8 @@
 package com.cts.hotel.service.impl;
 
-import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.reactive.ReactiveKafkaProducerTemplate;
 import org.springframework.stereotype.Service;
 
 import com.cts.hotel.dao.FloorDao;
@@ -17,13 +17,10 @@ import com.cts.hotel.model.FloorModel;
 import com.cts.hotel.model.RoomModel;
 import com.cts.hotel.model.RoomTypeModel;
 import com.cts.hotel.service.HotelInventoryService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
+import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.kafka.sender.KafkaSender;
-import reactor.kafka.sender.SenderRecord;
 
 @Service
 public class HotelInventoryServiceImpl implements HotelInventoryService {
@@ -47,48 +44,47 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
     private String updateRoomTopic;
 	
 	@Autowired
-	private KafkaSender<String, String> sender;
+	private ReactiveKafkaProducerTemplate<String, RoomModel> addRoomKafkaProducerTemplate;
+	
+	@Autowired
+	private ReactiveKafkaProducerTemplate<String, RoomModel> updateRoomKafkaProducerTemplate;
 	
 	@Value("${not.found}")
 	private String notFound;
 	
 	@Override
-	public Mono<RoomModel> createRoom(RoomModel roomModel) {
+	public Disposable createRoom(RoomModel roomModel) {
 		
-		int count = 1;
 		roomModel.setCreatedBy("1");
 		roomModel.setCreatedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
 		roomModel.setStatus(Status.ACTIVE.ordinal());
-		try {
-			String roomModelString = new ObjectMapper().writeValueAsString(roomModel);
-			System.err.println("roomModelString ==>> " + roomModelString);
-			Flux<SenderRecord<String , String, String>> outboundFlux = Flux.range(1, count)
-			          .map(i -> SenderRecord.create(new ProducerRecord<>(addRoomTopic, roomModelString), roomModel.getCreatedDate()));
-			sender.send(outboundFlux).subscribe();
-			System.err.println("value send to kafka");
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
 		
-		return null;
-				
+		return addRoomKafkaProducerTemplate.send(addRoomTopic, roomModel)
+        .doOnSuccess(senderResult -> System.out.println("sent ==>> "+ roomModel+ " offset ==>> "+ senderResult.recordMetadata().offset()))
+        .subscribe();
 	}
 
 	@Override
-	public Mono<RoomModel> updateRoom(RoomModel roomModel) {
+	public Disposable updateRoom(RoomModel roomModel) {
+		
+		roomModel.setModifiedBy("1");
+		roomModel.setModifiedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+		return updateRoomKafkaProducerTemplate.send(updateRoomTopic, roomModel)
+		        .doOnSuccess(senderResult -> System.out.println("sent ==>> "+ roomModel+ " offset ==>> "+ senderResult.recordMetadata().offset()))
+		        .subscribe();
 		
 		//kafkaTemplate.send(updateRoomTopic, roomModel);
-		return roomDao.findById(roomModel.getRoomId()).flatMap(roomEntity -> {
-			roomEntity.setModifiedBy("1");
-			roomEntity.setModifiedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
-			roomEntity.setStatus(roomModel.getStatus());
-			roomEntity.setRoomNumber(roomModel.getRoomNumber());
-			roomEntity.setRoomType(roomModel.getRoomType());
-			roomEntity.setFloorName(roomModel.getFloorName());
-			roomEntity.setHotelId(roomModel.getHotelId());
-			System.err.println("roomEntity ==>> "+roomEntity);
-			return roomDao.save(roomEntity).log().map(re -> util.transform(re, RoomModel.class));
-		});
+//		return roomDao.findById(roomModel.getRoomId()).flatMap(roomEntity -> {
+//			roomEntity.setModifiedBy("1");
+//			roomEntity.setModifiedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+//			roomEntity.setStatus(roomModel.getStatus());
+//			roomEntity.setRoomNumber(roomModel.getRoomNumber());
+//			roomEntity.setRoomType(roomModel.getRoomType());
+//			roomEntity.setFloorName(roomModel.getFloorName());
+//			roomEntity.setHotelId(roomModel.getHotelId());
+//			System.err.println("roomEntity ==>> "+roomEntity);
+//			return roomDao.save(roomEntity).log().map(re -> util.transform(re, RoomModel.class));
+//		});
 	}
 	
 	@Override

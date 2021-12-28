@@ -23,6 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -40,7 +41,7 @@ public class HotelInventoryController {
 	 			responses = {@ApiResponse(responseCode = "201", description = "Room Added Successfully", content = @Content(schema = @Schema(implementation = String.class))),
 	 					     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
 	 			requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = RoomModel.class))))
-    public Mono<RoomModel> createRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
+    public Disposable createRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
 
         return hotelInventoryService.createRoom(roomModel);
 
@@ -51,7 +52,7 @@ public class HotelInventoryController {
 				responses = {@ApiResponse(responseCode = "200", description = "Room Updated Successfully", content = @Content(schema = @Schema(implementation = String.class))),
 				     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
 				requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = RoomModel.class))))
-    public Mono<RoomModel> updateRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
+    public Disposable updateRoom(@org.springframework.web.bind.annotation.RequestBody @Valid RoomModel roomModel) {
 
         return hotelInventoryService.updateRoom(roomModel);
     }
