@@ -10,9 +10,8 @@ import reactor.core.publisher.Flux;
 public interface RoomInventoryDao extends ReactiveMongoRepository<RoomInventoryEntity, String> {
 	
 	@Query("{'hotelId' : ?0, 'roomId' : ?1}")
-	Flux<RoomInventoryEntity> getRoomByHotelIdAndRoomId(int hotelId, int roomId);
+	Flux<RoomInventoryEntity> getRoomByHotelIdAndRoomId(String hotelId, String roomId);
 	
 	@Query("{'hotelId' : ?0, 'floorId' : ?1}")
-	Flux<RoomInventoryEntity> getRoomsByHotelIdAndFloorId(int hotelId, int floorId);
-
+	Flux<RoomInventoryEntity> getRoomsByHotelIdAndFloorId(String hotelId, String floorId);
 }

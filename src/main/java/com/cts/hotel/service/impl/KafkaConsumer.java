@@ -60,18 +60,18 @@ public class KafkaConsumer {
 
 	public Flux<RoomInventoryModel> addRoomInventory() {
 
-		System.err.println("In Add Room Method");
+		System.err.println("In Add Room Inventory Method");
 		return addRoomInventoryKafkaConsumerTemplate.receiveAutoAck()
 				// .delayElements(Duration.ofSeconds(2L)) // BACKPRESSURE
 				.doOnNext(consumerRecord -> System.out.println("received key ==>> " + consumerRecord.key()
 						+ " value ==>> " + consumerRecord.value() + " from topic ==>> " + consumerRecord.topic()
 						+ "  offset ==>> " + consumerRecord.offset()))
-				.map(ConsumerRecord::value).doOnNext(roomModel -> {
+				.map(ConsumerRecord::value).doOnNext(roomInventoryModel -> {
 					System.out.println("Successfully consumed ==>> " + RoomInventoryModel.class.getSimpleName()
-							+ " with value ==>> " + roomModel);
-					RoomInventoryEntity roomEntity = util.transform(roomModel, RoomInventoryEntity.class);
-					System.err.println("roomEntity ==>> " + roomEntity);
-					roomInventoryDao.save(roomEntity).log().subscribe();
+							+ " with value ==>> " + roomInventoryModel);
+					RoomInventoryEntity roomInventoryEntity = util.transform(roomInventoryModel, RoomInventoryEntity.class);
+					System.err.println("roomInventoryEntity ==>> " + roomInventoryEntity);
+					roomInventoryDao.save(roomInventoryEntity).log().subscribe();
 				}).doOnError(throwable -> System.err
 						.println("something bad happened while consuming ==>> " + throwable.getMessage()));
 	}

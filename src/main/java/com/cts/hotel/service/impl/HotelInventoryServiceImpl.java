@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.cts.hotel.dao.FloorDao;
 import com.cts.hotel.dao.RoomDao;
+import com.cts.hotel.dao.RoomInventoryDao;
 import com.cts.hotel.dao.RoomTypeDao;
 import com.cts.hotel.entity.FloorEntity;
 import com.cts.hotel.entity.RoomEntity;
+import com.cts.hotel.entity.RoomInventoryEntity;
 import com.cts.hotel.entity.RoomTypeEntity;
 import com.cts.hotel.helper.Status;
 import com.cts.hotel.helper.Util;
@@ -36,6 +38,9 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	
 	@Autowired
 	private RoomTypeDao roomTypeDao;
+	
+	@Autowired
+	private RoomInventoryDao roomInventoryDao;
 	
 	@Value("${add_room_topic}")
     private String addRoomTopic;
@@ -95,7 +100,7 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 		addRoomInventoryKafkaProducerTemplate.send(addRoomInventoryTopic, roomInventoryModel)
         .doOnSuccess(senderResult -> System.out.println("sent ==>> "+ roomInventoryModel+ " offset ==>> "+ senderResult.recordMetadata().offset()))
         .subscribe();
-		kafkaConsumer.addRoom().subscribe();
+		kafkaConsumer.addRoomInventory().subscribe();
 	}
 	
 	@Override
@@ -139,5 +144,13 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 		FloorEntity floorEntity = util.transform(floorModel, FloorEntity.class);
 		System.err.println("floorEntity ==>> "+floorEntity);
 		return floorDao.save(floorEntity).log().map(re -> util.transform(re, FloorModel.class));
+	}
+
+
+	@Override
+	public Flux<RoomInventoryModel> fetchRoomInventoryByHotelAndFloor(String hotelId, String floorId) {
+		
+		Flux<RoomInventoryEntity> roomInventoryEntities = roomInventoryDao.getRoomsByHotelIdAndFloorId(hotelId, floorId);
+		return roomInventoryEntities.map(re -> util.transform(re, RoomInventoryModel.class)).log();
 	}
 }
