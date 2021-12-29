@@ -27,4 +27,6 @@ public interface HotelInventoryService {
 	void createRoomInventory(RoomInventoryModel roomModel);
 
 	Flux<RoomInventoryModel> fetchRoomInventoryByHotelAndFloor(String hotelId, String floorId);
+
+	Flux<RoomInventoryModel> fetchRoomInventoryByHotelAndRoom(String hotelId, String roomId);
 }
