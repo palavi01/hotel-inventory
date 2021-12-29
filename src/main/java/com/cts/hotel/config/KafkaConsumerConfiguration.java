@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.reactive.ReactiveKafkaConsumerTemplate;
 
+import com.cts.hotel.model.RoomInventoryModel;
 import com.cts.hotel.model.RoomModel;
 
 import reactor.kafka.receiver.ReceiverOptions;
@@ -24,6 +25,17 @@ public class KafkaConsumerConfiguration {
     @Bean
     public ReactiveKafkaConsumerTemplate<String, RoomModel> addRoomKafkaConsumerTemplate(ReceiverOptions<String, RoomModel> addRoomKafKaReceiverOptions) {
         return new ReactiveKafkaConsumerTemplate<String, RoomModel>(addRoomKafKaReceiverOptions);
+    }
+    
+    @Bean
+    public ReceiverOptions<String, RoomInventoryModel> addRoomInventoryKafKaReceiverOptions(@Value(value = "${add_room_inventory_topic}") String topic, KafkaProperties kafkaProperties) {
+        ReceiverOptions<String, RoomInventoryModel> basicReceiverOptions = ReceiverOptions.create(kafkaProperties.buildConsumerProperties());
+        return basicReceiverOptions.subscription(Collections.singletonList(topic));
+    }
+
+    @Bean
+    public ReactiveKafkaConsumerTemplate<String, RoomInventoryModel> addRoomInventoryKafkaConsumerTemplate(ReceiverOptions<String, RoomInventoryModel> addRoomInventoryKafKaReceiverOptions) {
+        return new ReactiveKafkaConsumerTemplate<String, RoomInventoryModel>(addRoomInventoryKafKaReceiverOptions);
     }
     
     @Bean

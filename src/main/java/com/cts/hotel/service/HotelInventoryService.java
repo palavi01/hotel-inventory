@@ -1,6 +1,9 @@
 package com.cts.hotel.service;
 
+import javax.validation.Valid;
+
 import com.cts.hotel.model.FloorModel;
+import com.cts.hotel.model.RoomInventoryModel;
 import com.cts.hotel.model.RoomModel;
 import com.cts.hotel.model.RoomTypeModel;
 
@@ -22,4 +25,6 @@ public interface HotelInventoryService {
 	Mono<RoomTypeModel> addRoomTypes(RoomTypeModel roomTypeModel);
 
 	Mono<FloorModel> addFloors(FloorModel floorModel);
+
+	void createRoomInventory(RoomInventoryModel roomModel);
 }

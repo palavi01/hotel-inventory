@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.reactive.ReactiveKafkaProducerTemplate;
 
+import com.cts.hotel.model.RoomInventoryModel;
 import com.cts.hotel.model.RoomModel;
 
 import reactor.kafka.sender.SenderOptions;
@@ -19,6 +20,13 @@ public class KakfaProducerConfiguration {
     	
         Map<String, Object> props = properties.buildProducerProperties();
         return new ReactiveKafkaProducerTemplate<String, RoomModel>(SenderOptions.create(props));
+    }
+    
+    @Bean
+    public ReactiveKafkaProducerTemplate<String, RoomInventoryModel> addRoomInventoryKafkaProducerTemplate(KafkaProperties properties) {
+    	
+        Map<String, Object> props = properties.buildProducerProperties();
+        return new ReactiveKafkaProducerTemplate<String, RoomInventoryModel>(SenderOptions.create(props));
     }
     
     @Bean

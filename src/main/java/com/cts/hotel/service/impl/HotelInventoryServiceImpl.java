@@ -14,6 +14,7 @@ import com.cts.hotel.entity.RoomTypeEntity;
 import com.cts.hotel.helper.Status;
 import com.cts.hotel.helper.Util;
 import com.cts.hotel.model.FloorModel;
+import com.cts.hotel.model.RoomInventoryModel;
 import com.cts.hotel.model.RoomModel;
 import com.cts.hotel.model.RoomTypeModel;
 import com.cts.hotel.service.HotelInventoryService;
@@ -39,11 +40,17 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 	@Value("${add_room_topic}")
     private String addRoomTopic;
 	
+	@Value("${add_room_inventory_topic}")
+    private String addRoomInventoryTopic;
+	
 	@Value("${update_room_topic}")
     private String updateRoomTopic;
 	
 	@Autowired
 	private ReactiveKafkaProducerTemplate<String, RoomModel> addRoomKafkaProducerTemplate;
+	
+	@Autowired
+	private ReactiveKafkaProducerTemplate<String, RoomInventoryModel> addRoomInventoryKafkaProducerTemplate;
 	
 	@Autowired
 	private ReactiveKafkaProducerTemplate<String, RoomModel> updateRoomKafkaProducerTemplate;
@@ -67,7 +74,7 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 		kafkaConsumer.addRoom().subscribe();
 	}
 
-	@Override
+	
 	public void updateRoom(RoomModel roomModel) {
 		
 		roomModel.setModifiedBy("1");
@@ -76,6 +83,19 @@ public class HotelInventoryServiceImpl implements HotelInventoryService {
 		        .doOnSuccess(senderResult -> System.out.println("sent ==>> "+ roomModel+ " offset ==>> "+ senderResult.recordMetadata().offset()))
 		        .subscribe();
 		kafkaConsumer.updateRoom().subscribe();
+	}
+	
+	@Override
+	public void createRoomInventory(RoomInventoryModel roomInventoryModel) {
+		
+		roomInventoryModel.setCreatedBy("1");
+		roomInventoryModel.setCreatedDate(Util.getCurrentDateTime("dd-MM-yyyy HH:mm:ss"));
+		roomInventoryModel.setStatus(Status.ACTIVE.ordinal());
+		
+		addRoomInventoryKafkaProducerTemplate.send(addRoomInventoryTopic, roomInventoryModel)
+        .doOnSuccess(senderResult -> System.out.println("sent ==>> "+ roomInventoryModel+ " offset ==>> "+ senderResult.recordMetadata().offset()))
+        .subscribe();
+		kafkaConsumer.addRoom().subscribe();
 	}
 	
 	@Override

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cts.hotel.model.FloorModel;
+import com.cts.hotel.model.RoomInventoryModel;
 import com.cts.hotel.model.RoomModel;
 import com.cts.hotel.model.RoomTypeModel;
 import com.cts.hotel.service.HotelInventoryService;
@@ -34,6 +35,17 @@ public class HotelInventoryController {
 
 	@Autowired
     private HotelInventoryService hotelInventoryService;
+	
+	@PostMapping(value = "/add-rooms", produces = { MediaType.APPLICATION_JSON_VALUE})
+	@Operation(summary = "Adding Rooms in Room Inventory", 
+	 			responses = {@ApiResponse(responseCode = "201", description = "Room Added Successfully", content = @Content(schema = @Schema(implementation = String.class))),
+	 					     @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content(schema = @Schema(implementation = String.class)))},
+	 			requestBody = @RequestBody(content = @Content(schema = @Schema(implementation = RoomModel.class))))
+    public void createRoomInventory(@org.springframework.web.bind.annotation.RequestBody @Valid RoomInventoryModel roomInventoryModel) {
+
+        hotelInventoryService.createRoomInventory(roomInventoryModel);
+
+    }
 	
 	@PostMapping()
 	@Operation(summary = "Adding Rooms", 
