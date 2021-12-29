@@ -45,17 +45,13 @@ public class KafkaConsumer {
 		System.err.println("In Add Room Method");
 		return addRoomKafkaConsumerTemplate.receiveAutoAck()
 				// .delayElements(Duration.ofSeconds(2L)) // BACKPRESSURE
-				.doOnNext(consumerRecord -> System.out.println("received key ==>> " + consumerRecord.key()
-						+ " value ==>> " + consumerRecord.value() + " from topic ==>> " + consumerRecord.topic()
-						+ "  offset ==>> " + consumerRecord.offset()))
+				.doOnNext(consumerRecord -> System.out.println("received key ==>> " + consumerRecord.key() + " value ==>> " + consumerRecord.value() + " from topic ==>> " + consumerRecord.topic() + "  offset ==>> " + consumerRecord.offset()))
 				.map(ConsumerRecord::value).doOnNext(roomModel -> {
-					System.out.println("Successfully consumed ==>> " + RoomModel.class.getSimpleName()
-							+ " with value ==>> " + roomModel);
+					System.out.println("Successfully consumed ==>> " + RoomModel.class.getSimpleName() + " with value ==>> " + roomModel);
 					RoomEntity roomEntity = util.transform(roomModel, RoomEntity.class);
 					System.err.println("roomEntity ==>> " + roomEntity);
 					roomDao.save(roomEntity).log().subscribe();
-				}).doOnError(throwable -> System.err
-						.println("something bad happened while consuming ==>> " + throwable.getMessage()));
+				}).doOnError(throwable -> System.err.println("something bad happened while consuming ==>> " + throwable.getMessage()));
 	}
 
 	public Flux<RoomInventoryModel> addRoomInventory() {
@@ -63,12 +59,9 @@ public class KafkaConsumer {
 		System.err.println("In Add Room Inventory Method");
 		return addRoomInventoryKafkaConsumerTemplate.receiveAutoAck()
 				// .delayElements(Duration.ofSeconds(2L)) // BACKPRESSURE
-				.doOnNext(consumerRecord -> System.out.println("received key ==>> " + consumerRecord.key()
-						+ " value ==>> " + consumerRecord.value() + " from topic ==>> " + consumerRecord.topic()
-						+ "  offset ==>> " + consumerRecord.offset()))
+				.doOnNext(consumerRecord -> System.out.println("received key ==>> " + consumerRecord.key() + " value ==>> " + consumerRecord.value() + " from topic ==>> " + consumerRecord.topic() + "  offset ==>> " + consumerRecord.offset()))
 				.map(ConsumerRecord::value).doOnNext(roomInventoryModel -> {
-					System.out.println("Successfully consumed ==>> " + RoomInventoryModel.class.getSimpleName()
-							+ " with value ==>> " + roomInventoryModel);
+					System.out.println("Successfully consumed ==>> " + RoomInventoryModel.class.getSimpleName() + " with value ==>> " + roomInventoryModel);
 					RoomInventoryEntity roomInventoryEntity = util.transform(roomInventoryModel, RoomInventoryEntity.class);
 					System.err.println("roomInventoryEntity ==>> " + roomInventoryEntity);
 					roomInventoryDao.save(roomInventoryEntity).log().subscribe();
@@ -81,9 +74,7 @@ public class KafkaConsumer {
 		System.err.println("In Update Room Method");
 		return updateRoomKafkaConsumerTemplate.receiveAutoAck()
 				// .delayElements(Duration.ofSeconds(2L)) // BACKPRESSURE
-				.doOnNext(consumerRecord -> System.out.println("received key ==>> " + consumerRecord.key()
-						+ " value ==>> " + consumerRecord.value() + " from topic ==>> " + consumerRecord.topic()
-						+ "  offset ==>> " + consumerRecord.offset()))
+				.doOnNext(consumerRecord -> System.out.println("received key ==>> " + consumerRecord.key() + " value ==>> " + consumerRecord.value() + " from topic ==>> " + consumerRecord.topic() + "  offset ==>> " + consumerRecord.offset()))
 				.map(ConsumerRecord::value).doOnNext(roomModel -> {
 					System.out.println("Successfully consumed ==>> " + RoomModel.class.getSimpleName()
 							+ " with value ==>> " + roomModel);
