@@ -12,6 +12,7 @@ import com.cts.hotel.helper.Util;
 import com.cts.hotel.model.RoomModel;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 public class KafkaConsumer {
@@ -42,7 +43,7 @@ public class KafkaConsumer {
 					System.out.println("Successfully consumed ==>> "+ RoomModel.class.getSimpleName() +" with value ==>> "+ roomModel);
 					RoomEntity roomEntity = util.transform(roomModel, RoomEntity.class);
 					 System.err.println("roomEntity ==>> "+roomEntity);
-					 roomDao.save(roomEntity).log();
+					 roomDao.save(roomEntity).log().subscribe();
 				})
 				.doOnError(throwable -> System.err.println("something bad happened while consuming ==>> "+ throwable.getMessage()));
 	}
@@ -56,15 +57,15 @@ public class KafkaConsumer {
 				.map(ConsumerRecord::value)
 				.doOnNext(roomModel -> {
 					System.out.println("Successfully consumed ==>> "+ RoomModel.class.getSimpleName() +" with value ==>> "+ roomModel);
-					roomDao.findById(roomModel.getRoomId()).map(roomEntity -> {
-						roomEntity.setStatus(roomModel.getStatus());
-						roomEntity.setRoomNumber(roomModel.getRoomNumber());
-						roomEntity.setRoomType(roomModel.getRoomType());
-						roomEntity.setFloorName(roomModel.getFloorName());
-						roomEntity.setHotelId(roomModel.getHotelId());
-						System.err.println("roomEntity ==>> "+roomEntity);
-						return roomDao.save(roomEntity).log().map(re -> util.transform(re, RoomModel.class));
-					});	
+					RoomEntity roomEntity = roomDao.findById(roomModel.getRoomId()).block();
+					roomEntity.setStatus(roomModel.getStatus());
+					roomEntity.setRoomNumber(roomModel.getRoomNumber());
+					roomEntity.setRoomType(roomModel.getRoomType());
+					roomEntity.setFloorName(roomModel.getFloorName());
+					roomEntity.setHotelId(roomModel.getHotelId());
+				//	Mono<RoomEntity> roomEntity1=Mono.just(roomEntity);
+					System.err.println("roomModel.getStatus() ==>> "+roomModel.getStatus());
+					roomDao.save(roomEntity).subscribe();
 				})
 				.doOnError(throwable -> System.err.println("something bad happened while consuming ==>> "+ throwable.getMessage()));
 	}
